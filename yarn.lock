@@ -6038,38 +6038,43 @@
     "@inrupt/solid-client-authn-core" "^1.12.1"
     "@inrupt/solid-client-authn-node" "^1.12.1"
 
-"@shexjs/parser@1.0.0-alpha.21":
-  version "1.0.0-alpha.21"
-  resolved "https://registry.yarnpkg.com/@shexjs/parser/-/parser-1.0.0-alpha.21.tgz#a688992f388556f34ad88f90ea4d0c1a92d5f4d5"
-  integrity sha512-BrOpMtbU7J/FCY+iouMLDVIJhc//nyXnryFbtgW+MIcV9jdjx2HgfA8hUpFDi/q1p/84k9YychPPt/W86J4wIA==
+"@shexjs/parser@1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@shexjs/parser/-/parser-1.0.0-alpha.24.tgz#38d852cb1e7da7b12a1a209b2620dc69546398be"
+  integrity sha512-qLnxdUJ8ll9iXSJaC7ul6YKsuHXn6tXoUMlv3LP3ngATS/s4hcevLTdetN/dwvV031CE8T5ob8qHY9BWB26Jkw==
   dependencies:
-    "@shexjs/util" "^1.0.0-alpha.21"
-    "@ts-jison/parser" "^0.2.2"
+    "@shexjs/util" "^1.0.0-alpha.24"
+    "@ts-jison/parser" "^0.3.0"
 
-"@shexjs/term@^1.0.0-alpha.21":
-  version "1.0.0-alpha.21"
-  resolved "https://registry.yarnpkg.com/@shexjs/term/-/term-1.0.0-alpha.21.tgz#c4a590598c2cb4cfcfdfe2c9abfeedc6b9aefe01"
-  integrity sha512-+Rfv5p06m2nY2NRRCoYirD5+OKfcvsd2CGUIqyr8YplZlyzBgJeGmM0oUdcmpDrAy+Nq+ZgqNpDZO9LX0VBdFw==
+"@shexjs/term@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@shexjs/term/-/term-1.0.0-alpha.24.tgz#fa740c7040188288a5556ed3b8b7d03acee3d328"
+  integrity sha512-7ccr20eRgo6gq106OYnFY33R/DQnGIVCeutUSt6SMSroqBdtcohBoPikgMIQSJxrrMTBl5Jg3q8M8TfjtSlTPA==
 
-"@shexjs/util@^1.0.0-alpha.21":
-  version "1.0.0-alpha.23"
-  resolved "https://registry.yarnpkg.com/@shexjs/util/-/util-1.0.0-alpha.23.tgz#1faebe2085772fb40539298b04daf8b53904af8e"
-  integrity sha512-5kGSqzVJHKZedDUiUDwxWcFBBX8xG3+Y472+EUtLBAYyBSIa0ZbPUMniftRH6E8pRw3lak4zDBKqqjVQOB801A==
+"@shexjs/util@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@shexjs/util/-/util-1.0.0-alpha.24.tgz#ae720a20eef269783b1d625531641d220fac5e5e"
+  integrity sha512-/veb7brP/aNdvtXf1j/XhEmjOhaHyRzJXgI2+Y9v9NdL+/coojMotrxSE8EZkZbn1AmBn7Ja/CFntPOFSTUb8Q==
   dependencies:
-    "@shexjs/term" "^1.0.0-alpha.21"
-    "@shexjs/visitor" "^1.0.0-alpha.22"
-    "@shexjs/writer" "^1.0.0-alpha.22"
+    "@shexjs/term" "^1.0.0-alpha.24"
+    "@shexjs/visitor" "^1.0.0-alpha.24"
+    "@shexjs/writer" "^1.0.0-alpha.24"
     hierarchy-closure "^1.2.1"
 
-"@shexjs/visitor@1.0.0-alpha.22", "@shexjs/visitor@^1.0.0-alpha.22":
+"@shexjs/visitor@1.0.0-alpha.22":
   version "1.0.0-alpha.22"
   resolved "https://registry.yarnpkg.com/@shexjs/visitor/-/visitor-1.0.0-alpha.22.tgz#d2e221dbe2af2efb3b4f168f9ced13a18989ca4c"
   integrity sha512-uqANt+FCAhrxocYQczT2vk5ll0A9ZSW0klVMKNkosOjrXz9mhJd5cPBo9zlosg6Pz+6O9RDWcwgmei0Reb+++Q==
 
-"@shexjs/writer@^1.0.0-alpha.22":
-  version "1.0.0-alpha.22"
-  resolved "https://registry.yarnpkg.com/@shexjs/writer/-/writer-1.0.0-alpha.22.tgz#e817dbbbdf18c373f544ced1904a502e665d7462"
-  integrity sha512-rwWlcAmRzuOjv/8DqYCndJCU/2Uvr7yRv0K7moiSXbhct5HTkjMxJZcUWoYxEkx0f6ywcUI77QtyTW/YguNVSg==
+"@shexjs/visitor@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@shexjs/visitor/-/visitor-1.0.0-alpha.24.tgz#82a8496a937e2a9f31ec27b48cc4a065e28ddb0b"
+  integrity sha512-6efvYB0XcdwUTtfJ5ZaHO6J6B8pRnO4/aodM40sFswp3AtJeQSlCX9kZD8imbSsLwcbcCAE9zwSQiVRc2yZHcw==
+
+"@shexjs/writer@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@shexjs/writer/-/writer-1.0.0-alpha.24.tgz#5564de9a467311f6df12bea08d1c564d71307769"
+  integrity sha512-/lh0atpEOj+3WxblGwYZLKwI0SCrSCRRXd8tQ9L75zN8Wz1TdLxyc360FlxRefoBh6PAWYpqkFg7CYm8gBx75g==
   dependencies:
     relateurl "^0.2.7"
 
@@ -6104,25 +6109,25 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@ts-jison/common@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@ts-jison/common/-/common-0.2.2.tgz#a1940bcaa7119880c54e52416c9048119066920c"
-  integrity sha512-Nnx95Wh7zA1Ck/aNJrbDRMu/EDAYXFEUPe4j+QgIjGPXSZVbDsGHzqlVwtUxCvoiJl0qZx1VqG9Of2F9xbeU1w==
+"@ts-jison/common@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ts-jison/common/-/common-0.3.0.tgz#da5e700c9a3548d8886616922c1ccb322c0b1cf8"
+  integrity sha512-Xa6YxCnLrRHu195kn/h3iMbPK6BfIc4teyvIGUQFpIv/lSNgykdjsdmJVUxGUBu3J7Y8kVhNiS1+m0qPGiespA==
 
-"@ts-jison/lexer@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@ts-jison/lexer/-/lexer-0.2.2.tgz#98e3933db5d97a6df543473bdd55ddbcde636e5d"
-  integrity sha512-jxgOmOuC1YXar+hvFaNUYW/EZfqa6IUMzTZMf0Y7A/2mDwqJYHLDD9DJQmVF+4AfUQjmMusH1S/S1C1tNWmPmQ==
+"@ts-jison/lexer@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ts-jison/lexer/-/lexer-0.3.0.tgz#4fe7c214ad55af90baef7cecba832a537c9559ba"
+  integrity sha512-Y7EMQZiqjGmdKJ8n4KloBLHIgD6mjee1DS9BlSCTq8sQy4yvWeb3Oot0yMj3vBzraE8WhmeUjE88qzdzpIfsmw==
   dependencies:
-    "@ts-jison/common" "^0.2.2"
+    "@ts-jison/common" "^0.3.0"
 
-"@ts-jison/parser@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@ts-jison/parser/-/parser-0.2.2.tgz#5c67c1d10f68ebba4643d89016d6ebf7d289fbbb"
-  integrity sha512-ZhY6Zagx1ZrsgW3kPNmilXrHTWeatvaWHqCEnwATbl4anQ3XxMMTliulDmGAZBp0ZUjZIwx1clPfCeX9Rer96w==
+"@ts-jison/parser@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ts-jison/parser/-/parser-0.3.0.tgz#cef9a3fbaffc5c50d32cf6f2dec0d8347fbac6d1"
+  integrity sha512-zuv6ZvAHG7wW7NrLGoGPz5qkdnTj4aU2AH4eXBvt+i31lKMeCTFy+l+OZ5PcZp0wt9XAM2ELRJYoVSReyjeWzQ==
   dependencies:
-    "@ts-jison/common" "^0.2.2"
-    "@ts-jison/lexer" "^0.2.2"
+    "@ts-jison/common" "^0.3.0"
+    "@ts-jison/lexer" "^0.3.0"
 
 "@types/babel__core@^7.1.14":
   version "7.1.19"
