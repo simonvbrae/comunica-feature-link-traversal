@@ -40,6 +40,7 @@
     "ccqs:config/rdf-metadata-extract/actors.json",
     "ccqs:config/rdf-metadata-extract/mediators.json",
     "ccqslt:config/rdf-metadata-extract/actors/traverse.json",
+    "ccqslt:config/rdf-metadata-extract/actors/void-description.json",
     "ccqs:config/rdf-parse/actors.json",
     "ccqs:config/rdf-parse/mediators.json",
     "ccqs:config/rdf-parse-html/actors.json",
