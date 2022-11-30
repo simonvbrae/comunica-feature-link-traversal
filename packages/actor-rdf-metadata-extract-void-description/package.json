@@ -1,28 +1,39 @@
 {
   "name": "@comunica/actor-rdf-metadata-extract-void-description",
-  "version": "0.0.0",
-  "description": "An actor that extracts metadata from VOID descriptions",
-  "homepage": "https://github.com/surilindur/comunica-experiments#readme",
+  "version": "0.0.1",
+  "description": "A traverse rdf-metadata-extract actor",
   "lsd:module": true,
   "main": "lib/index.js",
   "typings": "lib/index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/surilindur/comunica-experiments.git",
+    "url": "https://github.com/comunica/comunica.git",
     "directory": "packages/actor-rdf-metadata-extract-void-description"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "comunica",
+    "actor",
+    "rdf-metadata-extract",
+    "void"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/surilindur/comunica-experiments/issues"
+    "url": "https://github.com/comunica/comunica/issues"
   },
+  "homepage": "https://comunica.dev/",
   "files": [
     "components",
     "lib/**/*.d.ts",
-    "lib/**/*.js"
+    "lib/**/*.js",
+    "lib/**/*.js.map"
   ],
   "dependencies": {
-    "@comunica/bus-rdf-metadata-extract": "^2.5.1",
-    "@comunica/core": "^2.5.1"
+    "@comunica/core": "2.5.1-alpha.34.0",
+    "@comunica/bus-rdf-metadata-extract": "2.5.1-alpha.34.0"
   },
   "scripts": {
     "build": "npm run build:ts && npm run build:components",
