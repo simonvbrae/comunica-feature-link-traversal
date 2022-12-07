@@ -65,7 +65,7 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    console.log("ActorRdfMetadataExtractVoidDescription: run");
+    console.log("ActorRdfMetadataExtractVoidDescription: run", action.url);
     const quad: RDF.Quad = action.context.getSafe(
       KeysQueryOperation.operation
     ) as RDF.Quad;
@@ -198,7 +198,7 @@ export class ActorRdfMetadataExtractVoidDescription
         cardinality.value = data.get(predicate) as number;
       }
     }
-
+    console.log(cardinality);
     return { metadata: { cardinality: cardinality } };
   }
 }
