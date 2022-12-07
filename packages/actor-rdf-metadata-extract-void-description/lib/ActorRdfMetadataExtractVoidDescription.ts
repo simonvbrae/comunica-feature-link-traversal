@@ -1,17 +1,19 @@
 import {
+  type ActorInitQueryBase,
+  QueryEngineBase,
+} from "@comunica/actor-init-query";
+import { type MediatorDereferenceRdf } from "@comunica/bus-dereference-rdf";
+import {
   type IActionRdfMetadataExtract,
   type IActorRdfMetadataExtractOutput,
   type IActorRdfMetadataExtractArgs,
   ActorRdfMetadataExtract,
 } from "@comunica/bus-rdf-metadata-extract";
-import { type ActorInitQueryBase } from "@comunica/actor-init-query";
-import { QueryEngineBase } from "@comunica/actor-init-query";
-import { type IActorTest } from "@comunica/core";
-import { MediatorDereferenceRdf } from "@comunica/bus-dereference-rdf";
 import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
-import { storeStream } from "rdf-store-stream";
-import * as RDF from "@rdfjs/types";
+import { type IActorTest } from "@comunica/core";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
+import type * as RDF from "@rdfjs/types";
+import { storeStream } from "rdf-store-stream";
 
 /**
  * An RDF Metadata Extract Actor that extracts dataset metadata from their VOID descriptions

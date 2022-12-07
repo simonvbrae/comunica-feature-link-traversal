@@ -1,1 +1,1 @@
-export * from './ActorRdfMetadataExtractVoidDescription'
+export * from './ActorRdfMetadataExtractVoidDescription';
