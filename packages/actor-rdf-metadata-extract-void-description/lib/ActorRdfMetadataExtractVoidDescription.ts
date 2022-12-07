@@ -1,6 +1,11 @@
 import { type ActorInitQueryBase, QueryEngineBase } from '@comunica/actor-init-query';
 import { type MediatorDereferenceRdf } from '@comunica/bus-dereference-rdf';
-import { type IActionRdfMetadataExtract, type IActorRdfMetadataExtractOutput, type IActorRdfMetadataExtractArgs, ActorRdfMetadataExtract } from '@comunica/bus-rdf-metadata-extract';
+import {
+  type IActionRdfMetadataExtract,
+  type IActorRdfMetadataExtractOutput,
+  type IActorRdfMetadataExtractArgs,
+  ActorRdfMetadataExtract,
+} from '@comunica/bus-rdf-metadata-extract';
 import { KeysQueryOperation, KeysInitQuery } from '@comunica/context-entries';
 import { type IActorTest } from '@comunica/core';
 import { type IActionContext, type IQueryEngine } from '@comunica/types';
@@ -10,7 +15,8 @@ import { storeStream } from 'rdf-store-stream';
 /**
  * An RDF Metadata Extract Actor that extracts dataset metadata from their VOID descriptions
  */
-export class ActorRdfMetadataExtractVoidDescription extends ActorRdfMetadataExtract implements IActorRdfMetadataExtractVoidDescriptionArgs {
+export class ActorRdfMetadataExtractVoidDescription extends ActorRdfMetadataExtract
+  implements IActorRdfMetadataExtractVoidDescriptionArgs {
   public readonly mediatorDereferenceRdf: MediatorDereferenceRdf;
   public readonly actorInitQuery: ActorInitQueryBase;
   public readonly voidDatasetDescriptionPredicates: string[];
@@ -18,7 +24,8 @@ export class ActorRdfMetadataExtractVoidDescription extends ActorRdfMetadataExtr
   private readonly voidDatasetDescriptionPredicatesSet: Set<string>;
   private readonly queryEngine: IQueryEngine;
 
-  private static readonly predicateCardinalitiesByDataset: Map<string, Map<string, number>> = new Map<string, Map<string, number>>();
+  private static readonly predicateCardinalitiesByDataset: Map<string, Map<string, number>> =
+    new Map<string, Map<string, number>>();
 
   public constructor(args: IActorRdfMetadataExtractVoidDescriptionArgs) {
     super(args);
@@ -44,7 +51,8 @@ export class ActorRdfMetadataExtractVoidDescription extends ActorRdfMetadataExtr
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] = await this.extractVoidDatasetDescriptionLinks(action.metadata);
       if (voidMetadataDescriptions.length > 0) {
-        await Promise.all(voidMetadataDescriptions.map(url => this.dereferenceVoidDatasetDescription(url, action.context)));
+        await Promise.all(voidMetadataDescriptions.map(url =>
+          this.dereferenceVoidDatasetDescription(url, action.context)));
       }
     }
     return this.extractMetadataForPredicate(action.url, quad.predicate.value);
@@ -74,10 +82,16 @@ export class ActorRdfMetadataExtractVoidDescription extends ActorRdfMetadataExtr
       const propertyCardinality = bindings.get('propertyCardinality');
       if (dataset && property && propertyCardinality) {
         if (!ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.has(dataset.value)) {
-          ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.set(dataset.value, new Map<string, number>());
+          ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.set(
+            dataset.value,
+            new Map<string, number>(),
+          );
         }
         const datasetData = ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.get(dataset.value)!;
-        datasetData.set(property.value, (datasetData.get(property.value) ?? 0) + Number.parseInt(propertyCardinality.value, 10));
+        datasetData.set(
+          property.value,
+          (datasetData.get(property.value) ?? 0) + Number.parseInt(propertyCardinality.value, 10),
+        );
       }
     }
   }
