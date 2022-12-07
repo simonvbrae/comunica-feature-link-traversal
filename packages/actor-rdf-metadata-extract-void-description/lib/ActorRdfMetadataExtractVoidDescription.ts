@@ -12,7 +12,6 @@ import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
 import { storeStream } from "rdf-store-stream";
 import * as RDF from "@rdfjs/types";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
-import { exit } from "process";
 
 /**
  * An RDF Metadata Extract Actor that extracts dataset metadata from their VOID descriptions
@@ -68,16 +67,10 @@ export class ActorRdfMetadataExtractVoidDescription
     const quad: RDF.Quad = action.context.getSafe(
       KeysQueryOperation.operation
     ) as RDF.Quad;
-    console.log("quad");
-    console.log(quad);
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
-      console.log("current action " + action);
-      console.log("metadata didn't exist for url of cur action " + action.url);
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
       if (voidMetadataDescriptions.length > 0) {
-        console.log("voidMetadataDescriptions before dereference");
-        console.log(voidMetadataDescriptions);
         await Promise.all(
           voidMetadataDescriptions.map((url) =>
             this.dereferenceVoidDatasetDescription(url, action.context)
@@ -92,16 +85,14 @@ export class ActorRdfMetadataExtractVoidDescription
     url: string,
     context: IActionContext
   ): Promise<void> {
-    console.log("Calling dereference function, url" + url);
+    console.log("Calling dereference function, url: " + url);
     const response = await this.mediatorDereferenceRdf.mediate({
       url: url,
       context: context,
     });
-    console.log("response");
-    console.log("didn't print, too big");
-    console.log("1");
+
     const store = await storeStream<RDF.Quad>(response.data);
-    console.log("1.1");
+
     const query = `
       PREFIX void: <http://rdfs.org/ns/void#>
 
@@ -112,23 +103,19 @@ export class ActorRdfMetadataExtractVoidDescription
           ] .
       }
     `;
-    console.log("2");
+
     const bindingsStream = await this.queryEngine.queryBindings(query, {
       sources: [store],
       lenient: false,
     });
-    console.log("3");
     const bindingsArray: RDF.Bindings[] = await bindingsStream.toArray();
-    console.log("bindingsArray");
-    console.log(bindingsArray);
+    // console.log("bindingsArray");
+    // console.log(bindingsArray);
 
     for (const bindings of bindingsArray) {
       const dataset = bindings.get("dataset");
       const property = bindings.get("property");
       const propertyCardinality = bindings.get("propertyCardinality");
-      console.log(dataset);
-      console.log(property);
-      console.log(propertyCardinality);
       if (dataset && property && propertyCardinality) {
         if (
           !ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.has(
@@ -146,27 +133,28 @@ export class ActorRdfMetadataExtractVoidDescription
           ) as Map<string, number>;
         // logging it like this below
         // eslint-disable-next-line no-console
-        console.log(
-          "Cardinality",
-          dataset.value,
-          property.value,
-          datasetData.get(property.value)
-        );
 
         datasetData.set(
           property.value,
           (datasetData.get(property.value) ?? 0) +
             parseInt(propertyCardinality.value)
         );
+
+        // console.log(
+        //   "Cardinality",
+        //   dataset.value,
+        //   property.value,
+        //   datasetData.get(property.value)
+        // );
       }
     }
-    exit(1);
   }
 
   private extractVoidDatasetDescriptionLinks(
     metadata: RDF.Stream
   ): Promise<string[]> {
     return new Promise<string[]>((resolve, reject) => {
+      console.log("calling extractVoidDatasetDescriptionLinks");
       const datasetDescriptionLinks: Set<string> = new Set<string>();
       metadata
         .on("data", (quad: RDF.Quad) => {
@@ -198,12 +186,7 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-    console.log(
-      "ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset"
-    );
-    console.log(
-      ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset
-    );
+    console.log("calling extractMetadataForPredicate");
     for (const [
       key,
       data,
@@ -213,8 +196,7 @@ export class ActorRdfMetadataExtractVoidDescription
         cardinality.value = data.get(predicate) as number;
       }
     }
-    console.log("Returning: " + cardinality.dataset);
-    console.log("Returning: " + cardinality.value);
+
     return { metadata: { cardinality: cardinality } };
   }
 }
