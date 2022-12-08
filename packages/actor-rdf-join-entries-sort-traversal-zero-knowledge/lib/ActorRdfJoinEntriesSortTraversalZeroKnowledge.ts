@@ -5,6 +5,7 @@ import { getDataSourceValue } from '@comunica/bus-rdf-resolve-quad-pattern';
 import { KeysRdfResolveQuadPattern } from '@comunica/context-entries';
 import type { IActorArgs, IActorTest } from '@comunica/core';
 import type { DataSources, IJoinEntryWithMetadata } from '@comunica/types';
+import { exit } from 'process';
 import type * as RDF from 'rdf-js';
 import { getNamedNodes, getTerms, getVariables, QUAD_TERM_NAMES } from 'rdf-terms';
 import { Algebra, Util as AlgebraUtil } from 'sparqlalgebrajs';
@@ -128,7 +129,9 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
-    return true;
+    console.log("TEST ZERO");
+    console.log("TYPE=",action.entries[0].metadata.cardinality.type);
+    throw new Error(`Actor ${this.name} should not be used when accurate cardinalities are known`);
   }
 
   public async run(action: IActionRdfJoinEntriesSort): Promise<IActorRdfJoinEntriesSortOutput> {
