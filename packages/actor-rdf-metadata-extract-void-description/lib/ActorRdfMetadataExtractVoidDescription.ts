@@ -13,6 +13,7 @@ import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
 import { type IActorTest } from "@comunica/core";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
 import type * as RDF from "@rdfjs/types";
+import { exit } from "process";
 import { storeStream } from "rdf-store-stream";
 
 /**
@@ -66,6 +67,9 @@ export class ActorRdfMetadataExtractVoidDescription
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
     console.log("ActorRdfMetadataExtractVoidDescription: run", action.url);
+    // console.log("kk");
+    // console.trace();
+    // exit(1);
     const quad: RDF.Quad = action.context.getSafe(
       KeysQueryOperation.operation
     ) as RDF.Quad;
