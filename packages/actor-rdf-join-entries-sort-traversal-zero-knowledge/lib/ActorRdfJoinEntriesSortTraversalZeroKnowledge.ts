@@ -1,14 +1,21 @@
-import type { IActionRdfJoinEntriesSort,
-  IActorRdfJoinEntriesSortOutput } from '@comunica/bus-rdf-join-entries-sort';
-import { ActorRdfJoinEntriesSort } from '@comunica/bus-rdf-join-entries-sort';
-import { getDataSourceValue } from '@comunica/bus-rdf-resolve-quad-pattern';
-import { KeysRdfResolveQuadPattern } from '@comunica/context-entries';
-import type { IActorArgs, IActorTest } from '@comunica/core';
-import type { DataSources, IJoinEntryWithMetadata } from '@comunica/types';
-import { exit } from 'process';
-import type * as RDF from 'rdf-js';
-import { getNamedNodes, getTerms, getVariables, QUAD_TERM_NAMES } from 'rdf-terms';
-import { Algebra, Util as AlgebraUtil } from 'sparqlalgebrajs';
+import type {
+  IActionRdfJoinEntriesSort,
+  IActorRdfJoinEntriesSortOutput,
+} from "@comunica/bus-rdf-join-entries-sort";
+import { ActorRdfJoinEntriesSort } from "@comunica/bus-rdf-join-entries-sort";
+import { getDataSourceValue } from "@comunica/bus-rdf-resolve-quad-pattern";
+import { KeysRdfResolveQuadPattern } from "@comunica/context-entries";
+import type { IActorArgs, IActorTest } from "@comunica/core";
+import type { DataSources, IJoinEntryWithMetadata } from "@comunica/types";
+import { exit } from "process";
+import type * as RDF from "rdf-js";
+import {
+  getNamedNodes,
+  getTerms,
+  getVariables,
+  QUAD_TERM_NAMES,
+} from "rdf-terms";
+import { Algebra, Util as AlgebraUtil } from "sparqlalgebrajs";
 
 /**
  * An actor that sorts join entries based on Hartig's heuristic for plan selection in link traversal environments.
@@ -29,7 +36,11 @@ import { Algebra, Util as AlgebraUtil } from 'sparqlalgebrajs';
  */
 export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinEntriesSort {
   public constructor(
-    args: IActorArgs<IActionRdfJoinEntriesSort, IActorTest, IActorRdfJoinEntriesSortOutput>,
+    args: IActorArgs<
+      IActionRdfJoinEntriesSort,
+      IActorTest,
+      IActorRdfJoinEntriesSortOutput
+    >
   ) {
     super(args);
   }
@@ -39,10 +50,12 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
    * Concretely, predicates will be omitted, and objects if predicate is http://www.w3.org/1999/02/22-rdf-syntax-ns#type
    * @param pattern A quad pattern.
    */
-  public static getPatternNonVocabUris(pattern: Algebra.Pattern | Algebra.Path): RDF.NamedNode[] {
+  public static getPatternNonVocabUris(
+    pattern: Algebra.Pattern | Algebra.Path
+  ): RDF.NamedNode[] {
     let nonVocabTerms: RDF.Term[];
     const predicates: RDF.Term[] = [];
-    if (pattern.type === 'pattern') {
+    if (pattern.type === "pattern") {
       predicates.push(pattern.predicate);
     } else {
       AlgebraUtil.recurseOperation(pattern, {
@@ -59,12 +72,16 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
       });
     }
 
-    if (predicates
-      .some(predicate => predicate.termType === 'NamedNode' &&
-        predicate.value === 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type')) {
-      nonVocabTerms = [ pattern.subject, pattern.graph ];
+    if (
+      predicates.some(
+        (predicate) =>
+          predicate.termType === "NamedNode" &&
+          predicate.value === "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      )
+    ) {
+      nonVocabTerms = [pattern.subject, pattern.graph];
     } else {
-      nonVocabTerms = [ pattern.subject, pattern.object, pattern.graph ];
+      nonVocabTerms = [pattern.subject, pattern.object, pattern.graph];
     }
     return getNamedNodes(nonVocabTerms);
   }
@@ -75,7 +92,7 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
    */
   public static getSourceUri(namedNode: RDF.NamedNode): string {
     const value = namedNode.value;
-    const hashPos = value.indexOf('#');
+    const hashPos = value.indexOf("#");
     return hashPos > 0 ? value.slice(0, hashPos) : value;
   }
 
@@ -85,11 +102,17 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
    * @param pattern A quad pattern.
    * @param sources An array of sources.
    */
-  public static getScoreSeedNonVocab(pattern: Algebra.Pattern | Algebra.Path, sources: string[]): number {
-    return ActorRdfJoinEntriesSortTraversalZeroKnowledge.getPatternNonVocabUris(pattern)
-      .map(term => ActorRdfJoinEntriesSortTraversalZeroKnowledge.getSourceUri(term))
-      .filter(uri => sources.includes(uri))
-      .length;
+  public static getScoreSeedNonVocab(
+    pattern: Algebra.Pattern | Algebra.Path,
+    sources: string[]
+  ): number {
+    return ActorRdfJoinEntriesSortTraversalZeroKnowledge.getPatternNonVocabUris(
+      pattern
+    )
+      .map((term) =>
+        ActorRdfJoinEntriesSortTraversalZeroKnowledge.getSourceUri(term)
+      )
+      .filter((uri) => sources.includes(uri)).length;
   }
 
   /**
@@ -97,8 +120,13 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
    * The fewer variables, the higher the score.
    * @param pattern A quad pattern.
    */
-  public static getScoreSelectivity(pattern: Algebra.Pattern | Algebra.Path): number {
-    const terms = pattern.type === 'pattern' ? getTerms(pattern) : [ pattern.subject, pattern.object, pattern.graph ];
+  public static getScoreSelectivity(
+    pattern: Algebra.Pattern | Algebra.Path
+  ): number {
+    const terms =
+      pattern.type === "pattern"
+        ? getTerms(pattern)
+        : [pattern.subject, pattern.object, pattern.graph];
     return QUAD_TERM_NAMES.length - getVariables(terms).length;
   }
 
@@ -111,42 +139,74 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
    * @param entries Quad patterns.
    * @param sources The sources that are currently being queried.
    */
-  public static sortJoinEntries(entries: IJoinEntryWithMetadata[], sources: string[]): IJoinEntryWithMetadata[] {
-    return [ ...entries ].sort((entryA: IJoinEntryWithMetadata, entryB: IJoinEntryWithMetadata) => {
-      if ((entryA.operation.type === Algebra.types.PATTERN || entryA.operation.type === Algebra.types.PATH) &&
-        (entryB.operation.type === Algebra.types.PATTERN || entryB.operation.type === Algebra.types.PATH)) {
-        const compSeedNonVocab = ActorRdfJoinEntriesSortTraversalZeroKnowledge
-          .getScoreSeedNonVocab(entryB.operation, sources) -
-          ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSeedNonVocab(entryA.operation, sources);
-        if (compSeedNonVocab === 0) {
-          return ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSelectivity(entryB.operation) -
-            ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSelectivity(entryA.operation);
+  public static sortJoinEntries(
+    entries: IJoinEntryWithMetadata[],
+    sources: string[]
+  ): IJoinEntryWithMetadata[] {
+    return [...entries].sort(
+      (entryA: IJoinEntryWithMetadata, entryB: IJoinEntryWithMetadata) => {
+        if (
+          (entryA.operation.type === Algebra.types.PATTERN ||
+            entryA.operation.type === Algebra.types.PATH) &&
+          (entryB.operation.type === Algebra.types.PATTERN ||
+            entryB.operation.type === Algebra.types.PATH)
+        ) {
+          const compSeedNonVocab =
+            ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSeedNonVocab(
+              entryB.operation,
+              sources
+            ) -
+            ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSeedNonVocab(
+              entryA.operation,
+              sources
+            );
+          if (compSeedNonVocab === 0) {
+            return (
+              ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSelectivity(
+                entryB.operation
+              ) -
+              ActorRdfJoinEntriesSortTraversalZeroKnowledge.getScoreSelectivity(
+                entryA.operation
+              )
+            );
+          }
+          return compSeedNonVocab;
         }
-        return compSeedNonVocab;
+        return entryA.operation.type === Algebra.types.PATTERN ? -1 : 1;
       }
-      return entryA.operation.type === Algebra.types.PATTERN ? -1 : 1;
-    });
+    );
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
-    console.log("TEST ZERO");
-    console.log("TYPE=",action.entries[0].metadata.cardinality.type);
-    throw new Error(`Actor ${this.name} should not be used when accurate cardinalities are known`);
+    // console.log("TESTING ActorRdf JoinEntriesSort TraversalZeroKnowledge");
+    // console.log("Metadata type =", action.entries[0].metadata.cardinality.type);
+    throw new Error(
+      `Actor ${this.name} should not be used when accurate cardinalities are known`
+    );
   }
 
-  public async run(action: IActionRdfJoinEntriesSort): Promise<IActorRdfJoinEntriesSortOutput> {
+  public async run(
+    action: IActionRdfJoinEntriesSort
+  ): Promise<IActorRdfJoinEntriesSortOutput> {
     // Determine all current sources
     const sources: string[] = [];
-    const dataSources: DataSources | undefined = action.context.get(KeysRdfResolveQuadPattern.sources);
+    const dataSources: DataSources | undefined = action.context.get(
+      KeysRdfResolveQuadPattern.sources
+    );
     if (dataSources) {
       for (const source of dataSources) {
         const sourceValue = getDataSourceValue(source);
-        if (typeof sourceValue === 'string') {
+        if (typeof sourceValue === "string") {
           sources.push(sourceValue);
         }
       }
     }
 
-    return { entries: ActorRdfJoinEntriesSortTraversalZeroKnowledge.sortJoinEntries(action.entries, sources) };
+    return {
+      entries: ActorRdfJoinEntriesSortTraversalZeroKnowledge.sortJoinEntries(
+        action.entries,
+        sources
+      ),
+    };
   }
 }
