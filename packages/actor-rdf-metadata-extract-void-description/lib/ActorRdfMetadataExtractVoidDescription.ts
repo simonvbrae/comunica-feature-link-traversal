@@ -37,7 +37,7 @@ export class ActorRdfMetadataExtractVoidDescription
 
   public constructor(args: IActorRdfMetadataExtractVoidDescriptionArgs) {
     super(args);
-    console.log("ActorRdfMetadataExtractVoidDescription: constructor");
+    // console.log("ActorRdfMetadataExtractVoidDescription: constructor");
     this.actorInitQuery = args.actorInitQuery;
     this.mediatorDereferenceRdf = args.mediatorDereferenceRdf;
     this.voidDatasetDescriptionPredicates =
@@ -49,7 +49,7 @@ export class ActorRdfMetadataExtractVoidDescription
   }
 
   public async test(action: IActionRdfMetadataExtract): Promise<IActorTest> {
-    console.log("ActorRdfMetadataExtractVoidDescription: test");
+    // console.log("ActorRdfMetadataExtractVoidDescription: test");
     if (!action.context.get(KeysInitQuery.query)) {
       throw new Error(
         `Actor ${this.name} can only work in the context of a query.`
@@ -66,7 +66,7 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    console.log("ActorRdfMetadataExtractVoidDescription: run", action.url);
+    // console.log("ActorRdfMetadataExtractVoidDescription: run", action.url);
     // console.log("kk");
     // console.trace();
     // exit(1);
@@ -91,7 +91,7 @@ export class ActorRdfMetadataExtractVoidDescription
     url: string,
     context: IActionContext
   ): Promise<void> {
-    console.log("Calling dereference function, url: " + url);
+    // console.log("Calling dereference function, url: " + url);
     const response = await this.mediatorDereferenceRdf.mediate({
       url: url,
       context: context,
@@ -192,7 +192,7 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-    console.log("calling extractMetadataForPredicate");
+    // console.log("calling extractMetadataForPredicate");
     for (const [
       key,
       data,
@@ -202,7 +202,7 @@ export class ActorRdfMetadataExtractVoidDescription
         cardinality.value = data.get(predicate) as number;
       }
     }
-    console.log(cardinality);
+    // console.log(cardinality);
     return { metadata: { cardinality: cardinality } };
   }
 }
