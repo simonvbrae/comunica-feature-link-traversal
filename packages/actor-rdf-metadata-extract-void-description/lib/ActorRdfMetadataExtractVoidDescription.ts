@@ -66,13 +66,15 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    // console.log("ActorRdfMetadataExtractVoidDescription: run", action.url);
-    // console.log("kk");
-    // console.trace();
-    // exit(1);
     const quad: RDF.Quad = action.context.getSafe(
       KeysQueryOperation.operation
     ) as RDF.Quad;
+    console.log("action");
+    console.log(action);
+    if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
+      console.log("Found other predicate");
+      exit(1);
+    }
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -84,7 +86,11 @@ export class ActorRdfMetadataExtractVoidDescription
         );
       }
     }
-    return this.extractMetadataForPredicate(action.url, quad.predicate.value);
+
+    console.log("action.url", action.url);
+    let meta = this.extractMetadataForPredicate(action.url, quad.predicate.value);
+    console.log("Metadata", meta);
+    return meta;
   }
 
   private async dereferenceVoidDatasetDescription(
@@ -192,14 +198,21 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-    // console.log("calling extractMetadataForPredicate");
+    if(predicate !== 'http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator'){
+      console.log("predicate changed");
+      exit(1);
+    }
+
     for (const [
-      key,
-      data,
+      datasetUrl,
+      cardinalityMap,
     ] of ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset) {
-      if (url.startsWith(key) && data.has(predicate)) {
-        cardinality.dataset = key;
-        cardinality.value = data.get(predicate) as number;
+      if (url.startsWith(datasetUrl) && cardinalityMap.has(predicate)) {
+        cardinality.dataset = datasetUrl;
+        cardinality.value = cardinalityMap.get(predicate) as number;
+      } else {
+        console.log('ELSE');
+        exit(1);
       }
     }
     // console.log(cardinality);
