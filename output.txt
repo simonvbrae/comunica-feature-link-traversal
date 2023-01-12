@@ -1,0 +1,2090 @@
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
+--
+action
+{
+  context: ActionContext({
+    "@comunica/bus-query-operation:operation": {
+      "termType": "Quad",
+      "value": "",
+      "subject": {
+        "termType": "Variable",
+        "value": "message"
+      },
+      "predicate": {
+        "termType": "NamedNode",
+        "value": "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator"
+      },
+      "object": {
+        "termType": "NamedNode",
