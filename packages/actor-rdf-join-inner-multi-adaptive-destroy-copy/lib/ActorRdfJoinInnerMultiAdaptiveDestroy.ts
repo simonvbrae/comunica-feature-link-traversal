@@ -23,6 +23,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
       logicalType: 'inner',
       physicalName: 'multi-adaptive-destroy',
     });
+    console.log("ActorRdfJoinInnerMultiAdaptiveDestroy constructor");
   }
 
   public async test(action: IActionRdfJoin): Promise<IMediatorTypeJoinCoefficients> {
