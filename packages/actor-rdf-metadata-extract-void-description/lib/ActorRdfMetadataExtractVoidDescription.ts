@@ -69,12 +69,12 @@ export class ActorRdfMetadataExtractVoidDescription
     const quad: RDF.Quad = action.context.getSafe(
       KeysQueryOperation.operation
     ) as RDF.Quad;
-    console.log("action");
-    console.log(action);
-    if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
-      console.log("Found other predicate");
-      exit(1);
-    }
+    // console.log("action");
+    // console.log(action);
+    // if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
+    //   console.log("Found other predicate");
+    //   exit(1);
+    // }
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -87,9 +87,12 @@ export class ActorRdfMetadataExtractVoidDescription
       }
     }
 
-    console.log("action.url", action.url);
-    let meta = this.extractMetadataForPredicate(action.url, quad.predicate.value);
-    console.log("Metadata", meta);
+    // console.log("action.url", action.url);
+    let meta = this.extractMetadataForPredicate(
+      action.url,
+      quad.predicate.value
+    );
+    // console.log("Metadata", meta);
     return meta;
   }
 
@@ -166,7 +169,7 @@ export class ActorRdfMetadataExtractVoidDescription
     metadata: RDF.Stream
   ): Promise<string[]> {
     return new Promise<string[]>((resolve, reject) => {
-      console.log("calling extractVoidDatasetDescriptionLinks");
+      // console.log("calling extractVoidDatasetDescriptionLinks");
       const datasetDescriptionLinks: Set<string> = new Set<string>();
       metadata
         .on("data", (quad: RDF.Quad) => {
@@ -198,10 +201,10 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-    if(predicate !== 'http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator'){
-      console.log("predicate changed");
-      exit(1);
-    }
+    // if(predicate !== 'http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator'){
+    //   console.log("predicate changed");
+    //   exit(1);
+    // }
 
     for (const [
       datasetUrl,
@@ -210,10 +213,11 @@ export class ActorRdfMetadataExtractVoidDescription
       if (url.startsWith(datasetUrl) && cardinalityMap.has(predicate)) {
         cardinality.dataset = datasetUrl;
         cardinality.value = cardinalityMap.get(predicate) as number;
-      } else {
-        console.log('ELSE');
-        exit(1);
       }
+      // else {
+      //   console.log("ELSE");
+      //   exit(1);
+      // }
     }
     // console.log(cardinality);
     return { metadata: { cardinality: cardinality } };
