@@ -1,15 +1,18 @@
 import type {
   IActionRdfJoin,
   IActorRdfJoinArgs,
-  MediatorRdfJoin, IActorRdfJoinOutputInner,
-} from '@comunica/bus-rdf-join';
-import {
-  ActorRdfJoin,
-} from '@comunica/bus-rdf-join';
-import { KeysRdfJoin } from '@comunica/context-entries';
-import type { IMediatorTypeJoinCoefficients } from '@comunica/mediatortype-join-coefficients';
-import type { IQueryOperationResultBindings, MetadataBindings, IJoinEntry } from '@comunica/types';
-import { BindingsStreamAdaptiveDestroy } from './BindingsStreamAdaptiveDestroy';
+  MediatorRdfJoin,
+  IActorRdfJoinOutputInner,
+} from "@comunica/bus-rdf-join";
+import { ActorRdfJoin } from "@comunica/bus-rdf-join";
+import { KeysRdfJoin } from "@comunica/context-entries";
+import type { IMediatorTypeJoinCoefficients } from "@comunica/mediatortype-join-coefficients";
+import type {
+  IQueryOperationResultBindings,
+  MetadataBindings,
+  IJoinEntry,
+} from "@comunica/types";
+import { BindingsStreamAdaptiveDestroy } from "./BindingsStreamAdaptiveDestroy";
 
 /**
  * A comunica Inner Multi Adaptive Destroy RDF Join Actor.
@@ -20,25 +23,31 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
 
   public constructor(args: IActorRdfJoinInnerMultiAdaptiveDestroyArgs) {
     super(args, {
-      logicalType: 'inner',
-      physicalName: 'multi-adaptive-destroy',
+      logicalType: "inner",
+      physicalName: "multi-adaptive-destroy",
     });
     console.log("ActorRdfJoinInnerMultiAdaptiveDestroy constructor");
   }
 
-  public async test(action: IActionRdfJoin): Promise<IMediatorTypeJoinCoefficients> {
+  public async test(
+    action: IActionRdfJoin
+  ): Promise<IMediatorTypeJoinCoefficients> {
     if (action.context.get(KeysRdfJoin.skipAdaptiveJoin)) {
-      throw new Error(`Actor ${this.name} could not run because adaptive join processing is disabled.`);
+      throw new Error(
+        `Actor ${this.name} could not run because adaptive join processing is disabled.`
+      );
     }
     return super.test(action);
   }
 
-  public async run(action: IActionRdfJoin): Promise<IQueryOperationResultBindings> {
+  public async run(
+    action: IActionRdfJoin
+  ): Promise<IQueryOperationResultBindings> {
     return super.run(action);
   }
 
   protected cloneEntries(entries: IJoinEntry[]): IJoinEntry[] {
-    return entries.map(entry => ({
+    return entries.map((entry) => ({
       operation: entry.operation,
       output: {
         ...entry.output,
@@ -48,7 +57,9 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     }));
   }
 
-  protected async getOutput(action: IActionRdfJoin): Promise<IActorRdfJoinOutputInner> {
+  protected async getOutput(
+    action: IActionRdfJoin
+  ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
     const subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
 
@@ -61,18 +72,25 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
 
     return {
       result: {
-        type: 'bindings',
+        type: "bindings",
         bindingsStream: new BindingsStreamAdaptiveDestroy(
           firstOutput.bindingsStream,
-          async() =>
+          async () => {
             // Restart the join with the latest metadata
-            (await this.mediatorJoin.mediate({
-              type: action.type,
-              entries: this.cloneEntries(action.entries),
-              context: subContext,
-            })).bindingsStream
-          ,
-          { timeout: this.timeout, autoStart: false },
+            console.log("");
+            console.log("");
+            console.log("---------------SWAP--------------");
+            console.log("");
+            console.log("");
+            return (
+              await this.mediatorJoin.mediate({
+                type: action.type,
+                entries: this.cloneEntries(action.entries),
+                context: subContext,
+              })
+            ).bindingsStream;
+          },
+          { timeout: this.timeout, autoStart: false }
         ),
         metadata: firstOutput.metadata,
       },
@@ -81,7 +99,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
 
   protected async getJoinCoefficients(
     action: IActionRdfJoin,
-    metadatas: MetadataBindings[],
+    metadatas: MetadataBindings[]
   ): Promise<IMediatorTypeJoinCoefficients> {
     // Dummy join coefficients to make sure we always run first
     return {
@@ -93,7 +111,8 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   }
 }
 
-export interface IActorRdfJoinInnerMultiAdaptiveDestroyArgs extends IActorRdfJoinArgs {
+export interface IActorRdfJoinInnerMultiAdaptiveDestroyArgs
+  extends IActorRdfJoinArgs {
   mediatorJoin: MediatorRdfJoin;
   /**
    * @default {1000}

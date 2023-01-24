@@ -90,6 +90,7 @@
     "@comunica/actor-rdf-resolve-quad-pattern-rdfjs-source": "2.5.1-alpha.38.0",
     "@comunica/actor-query-operation-union": "2.5.1-alpha.38.0",
     "@comunica/actor-rdf-join-inner-multi-bind": "2.5.1-alpha.38.0",
-    "@comunica/actor-abstract-path": "2.5.1-alpha.38.0"
+    "@comunica/actor-abstract-path": "2.5.1-alpha.38.0",
+    "@comunica/context-entries": "2.5.1-alpha.38.0"
   }
 }
