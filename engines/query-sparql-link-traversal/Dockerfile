@@ -14,7 +14,11 @@ ARG NPM_REGISTRY=https://registry.npmjs.org/
 RUN npm config set @comunica:registry $NPM_REGISTRY
 
 # Install the node module
-RUN cd ${dir} && npm install --only=production
+RUN cd ${dir} && npm install --only=production --ignore-scripts
+
+RUN cp -r /var/www/@comunica/query-sparql-link-traversal/node_modules/@comunica/config-query-sparql/config/rdf-metadata-accumulate/ /var/www/@comunica/query-sparql-link-traversal/node_modules/rdf-parse/node_modules/@comunica/config-query-sparql/config/
+
+RUN cd ${dir} && npm run prepare
 
 # Run base binary (generated from package.json!bin)
 WORKDIR ${dir}
