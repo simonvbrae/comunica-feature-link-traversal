@@ -20,19 +20,24 @@ import { BindingsStreamAdaptiveDestroy } from "./BindingsStreamAdaptiveDestroy";
 export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   public readonly mediatorJoin: MediatorRdfJoin;
   public readonly timeout: number;
+  public readonly skipAdaptiveJoin: boolean;
 
   public constructor(args: IActorRdfJoinInnerMultiAdaptiveDestroyArgs) {
     super(args, {
       logicalType: "inner",
       physicalName: "multi-adaptive-destroy",
     });
-    console.log("ActorRdfJoinInnerMultiAdaptiveDestroy constructor");
+    this.timeout = args.timeout;
+    this.skipAdaptiveJoin = args.skipAdaptiveJoin;
   }
 
   public async test(
     action: IActionRdfJoin
   ): Promise<IMediatorTypeJoinCoefficients> {
-    if (action.context.get(KeysRdfJoin.skipAdaptiveJoin)) {
+    if (
+      action.context.get(KeysRdfJoin.skipAdaptiveJoin) ||
+      this.skipAdaptiveJoin
+    ) {
       throw new Error(
         `Actor ${this.name} could not run because adaptive join processing is disabled.`
       );
@@ -118,4 +123,5 @@ export interface IActorRdfJoinInnerMultiAdaptiveDestroyArgs
    * @default {1000}
    */
   timeout: number;
+  skipAdaptiveJoin: boolean;
 }
