@@ -13,7 +13,6 @@ import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
 import { type IActorTest } from "@comunica/core";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
 import type * as RDF from "@rdfjs/types";
-import { exit } from "process";
 import { storeStream } from "rdf-store-stream";
 
 /**
