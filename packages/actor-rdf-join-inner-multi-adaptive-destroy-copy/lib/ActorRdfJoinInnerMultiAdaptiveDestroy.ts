@@ -5,7 +5,7 @@ import type {
   IActorRdfJoinOutputInner,
 } from "@comunica/bus-rdf-join";
 import { ActorRdfJoin } from "@comunica/bus-rdf-join";
-import { KeysRdfJoin } from "@comunica/context-entries";
+import { KeysRdfJoin, KeysRdfJoinEntriesSort } from "@comunica/context-entries";
 import type { IMediatorTypeJoinCoefficients } from "@comunica/mediatortype-join-coefficients";
 import type {
   IQueryOperationResultBindings,
@@ -66,7 +66,16 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     action: IActionRdfJoin
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
-    const subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
+    const subContext0 = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
+    // Configure sort actors
+    const subContext1 = subContext0.set(
+      KeysRdfJoinEntriesSort.sortZeroKnowledge,
+      true
+    );
+    const subContext = subContext1.set(
+      KeysRdfJoinEntriesSort.sortByCardinality,
+      false
+    );
 
     // Execute the join with the metadata we have now
     const firstOutput = await this.mediatorJoin.mediate({
@@ -74,6 +83,15 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
       entries: this.cloneEntries(action.entries),
       context: subContext,
     });
+
+    const subContext2 = subContext.set(
+      KeysRdfJoinEntriesSort.sortZeroKnowledge,
+      false
+    );
+    const subContext3 = subContext2.set(
+      KeysRdfJoinEntriesSort.sortByCardinality,
+      true
+    );
 
     return {
       result: {
@@ -91,7 +109,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
               await this.mediatorJoin.mediate({
                 type: action.type,
                 entries: this.cloneEntries(action.entries),
-                context: subContext,
+                context: subContext3,
               })
             ).bindingsStream;
           },
