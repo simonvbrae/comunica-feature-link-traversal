@@ -4,10 +4,16 @@ import type {
 } from "@comunica/bus-rdf-join-entries-sort";
 import { ActorRdfJoinEntriesSort } from "@comunica/bus-rdf-join-entries-sort";
 import { getDataSourceValue } from "@comunica/bus-rdf-resolve-quad-pattern";
-import { KeysRdfResolveQuadPattern } from "@comunica/context-entries";
+import {
+  KeysRdfJoinEntriesSort,
+  KeysRdfResolveQuadPattern,
+} from "@comunica/context-entries";
 import type { IActorArgs, IActorTest } from "@comunica/core";
-import type { DataSources, IJoinEntryWithMetadata } from "@comunica/types";
-import { exit } from "process";
+import type {
+  DataSources,
+  IDataDestination,
+  IJoinEntryWithMetadata,
+} from "@comunica/types";
 import type * as RDF from "rdf-js";
 import {
   getNamedNodes,
@@ -178,16 +184,23 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
-    // console.log("TESTING ActorRdf JoinEntriesSort TraversalZeroKnowledge");
-    // console.log("Metadata type =", action.entries[0].metadata.cardinality.type);
-    throw new Error(
-      `Actor ${this.name} should not be used when accurate cardinalities are known`
-    );
+    if (
+      action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge) === false
+    ) {
+      throw new Error(
+        `Actor ${this.name} should not be used when disabled by the context`
+      );
+    }
+    return true;
+    // throw new Error(
+    //   `Actor ${this.name} should not be used when accurate cardinalities are known`
+    // );
   }
 
   public async run(
     action: IActionRdfJoinEntriesSort
   ): Promise<IActorRdfJoinEntriesSortOutput> {
+    // console.log("run zero sort");
     // Determine all current sources
     const sources: string[] = [];
     const dataSources: DataSources | undefined = action.context.get(
