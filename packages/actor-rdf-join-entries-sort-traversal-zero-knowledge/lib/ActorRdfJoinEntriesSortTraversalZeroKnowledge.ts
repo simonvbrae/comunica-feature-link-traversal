@@ -185,10 +185,9 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
-    if (action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge)===undefined){
-      console.log("Context variables still undefined");
-      exit(1);
-    }
+    throw new Error(
+      `Actor ${this.name} should not be used right now`
+    );
     if (
       action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge) === false
     ) {
