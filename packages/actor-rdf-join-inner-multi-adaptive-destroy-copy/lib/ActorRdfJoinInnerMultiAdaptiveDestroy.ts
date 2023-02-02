@@ -70,11 +70,11 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     // Configure sort actors
     const subContext1 = subContext0.set(
       KeysRdfJoinEntriesSort.sortZeroKnowledge,
-      true
+      false
     );
     const subContext = subContext1.set(
       KeysRdfJoinEntriesSort.sortByCardinality,
-      false
+      true
     );
 
     // Execute the join with the metadata we have now
