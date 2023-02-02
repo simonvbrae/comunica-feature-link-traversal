@@ -14,6 +14,7 @@ import type {
   IDataDestination,
   IJoinEntryWithMetadata,
 } from "@comunica/types";
+import { exit } from "process";
 import type * as RDF from "rdf-js";
 import {
   getNamedNodes,
@@ -184,6 +185,10 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
+    if (action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge)===undefined){
+      console.log("Context variables still undefined");
+      exit(1);
+    }
     if (
       action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge) === false
     ) {
@@ -200,7 +205,7 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   public async run(
     action: IActionRdfJoinEntriesSort
   ): Promise<IActorRdfJoinEntriesSortOutput> {
-    // console.log("run zero sort");
+    console.log("run zero sort");
     // Determine all current sources
     const sources: string[] = [];
     const dataSources: DataSources | undefined = action.context.get(

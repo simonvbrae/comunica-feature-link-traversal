@@ -35,6 +35,7 @@ export class ActorRdfMetadataExtractVoidDescription
   > = new Map<string, Map<string, number>>();
 
   public constructor(args: IActorRdfMetadataExtractVoidDescriptionArgs) {
+    console.log('ActorRdfMetadataExtractVoidDescription');
     super(args);
     // console.log("ActorRdfMetadataExtractVoidDescription: constructor");
     this.actorInitQuery = args.actorInitQuery;
@@ -70,10 +71,10 @@ export class ActorRdfMetadataExtractVoidDescription
     ) as RDF.Quad;
     // console.log("action");
     // console.log(action);
-    // if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
-    //   console.log("Found other predicate");
-    //   exit(1);
-    // }
+    if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
+      console.log("Found other predicate");
+      console.log(quad.predicate.value);
+    }
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -86,12 +87,10 @@ export class ActorRdfMetadataExtractVoidDescription
       }
     }
 
-    // console.log("action.url", action.url);
     let meta = this.extractMetadataForPredicate(
       action.url,
       quad.predicate.value
     );
-    // console.log("Metadata", meta);
     return meta;
   }
 
@@ -123,8 +122,6 @@ export class ActorRdfMetadataExtractVoidDescription
       lenient: false,
     });
     const bindingsArray: RDF.Bindings[] = await bindingsStream.toArray();
-    // console.log("bindingsArray");
-    // console.log(bindingsArray);
 
     for (const bindings of bindingsArray) {
       const dataset = bindings.get("dataset");
@@ -141,6 +138,7 @@ export class ActorRdfMetadataExtractVoidDescription
             new Map<string, number>()
           );
         }
+
         const datasetData =
           ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset.get(
             dataset.value
@@ -153,13 +151,6 @@ export class ActorRdfMetadataExtractVoidDescription
           (datasetData.get(property.value) ?? 0) +
             parseInt(propertyCardinality.value)
         );
-
-        // console.log(
-        //   "Cardinality",
-        //   dataset.value,
-        //   property.value,
-        //   datasetData.get(property.value)
-        // );
       }
     }
   }
@@ -200,10 +191,9 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-    // if(predicate !== 'http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator'){
-    //   console.log("predicate changed");
-    //   exit(1);
-    // }
+
+    // console.log(ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset);
+    // exit(1);
 
     for (const [
       datasetUrl,
@@ -213,11 +203,9 @@ export class ActorRdfMetadataExtractVoidDescription
         cardinality.dataset = datasetUrl;
         cardinality.value = cardinalityMap.get(predicate) as number;
       }
-      // else {
-      //   console.log("ELSE");
-      //   exit(1);
-      // }
     }
+
+    // console.log("Returning cardinality:");
     // console.log(cardinality);
     return { metadata: { cardinality: cardinality } };
   }
