@@ -71,10 +71,10 @@ export class ActorRdfMetadataExtractVoidDescription
     ) as RDF.Quad;
     // console.log("action");
     // console.log(action);
-    if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
-      console.log("Found other predicate");
-      console.log(quad.predicate.value);
-    }
+    // if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
+    //   console.log("Found other predicate");
+    //   console.log(quad.predicate.value);
+    // }
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -91,7 +91,7 @@ export class ActorRdfMetadataExtractVoidDescription
       action.url,
       quad.predicate.value
     );
-    return meta;
+    return {metadata: {cardinality: {map: ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset, extractor: this.extractMetadataForPredicate}}};;
   }
 
   private async dereferenceVoidDatasetDescription(
@@ -185,28 +185,31 @@ export class ActorRdfMetadataExtractVoidDescription
 
   private extractMetadataForPredicate(
     url: string,
-    predicate: string
+    predicate: string,
+    map?:  Map<string, Map<string, number>>
   ): IActorRdfMetadataExtractOutput {
+    if (map === undefined) {
+        map = ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset;
+    }
+
     const cardinality: Record<string, string | number> = {
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
 
-    // console.log(ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset);
-    // exit(1);
 
     for (const [
       datasetUrl,
       cardinalityMap,
-    ] of ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset) {
-      if (url.startsWith(datasetUrl) && cardinalityMap.has(predicate)) {
+    ] of map) {
+      // TODO Find a good way to get right entry from map
+      if ((url.startsWith(datasetUrl) || map.size === 1) && cardinalityMap.has(predicate)) {
         cardinality.dataset = datasetUrl;
         cardinality.value = cardinalityMap.get(predicate) as number;
+        cardinality.type = "index";
       }
     }
 
-    // console.log("Returning cardinality:");
-    // console.log(cardinality);
     return { metadata: { cardinality: cardinality } };
   }
 }
