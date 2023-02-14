@@ -1,6 +1,7 @@
 import type { Bindings, BindingsStream } from '@comunica/types';
 import type { TransformIteratorOptions } from 'asynciterator';
 import { TransformIterator } from 'asynciterator';
+import { exit } from 'process';
 
 /**
  * An iterator that starts by iterating over the first iterator,
@@ -16,6 +17,8 @@ export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
   private readonly pushedBindings: Map<string, number>;
 
   private timeoutHandle: NodeJS.Timeout | undefined;
+  public swapCallback: any;
+  private inPhaseTwo: boolean;
 
   public constructor(
     source: BindingsStream,
@@ -26,30 +29,38 @@ export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
     this.timeout = options.timeout;
     this.delayedSource = delayedSource;
     this.pushedBindings = new Map();
+    this.inPhaseTwo = false;
+
+    this.swapCallback = () => {
+      console.log("cb: Called swapCallback");
+      exit(1);
+      // if (this.source && !this.source.done && !this.inPhaseTwo) {
+      //   // Stop current iterator
+      //   this.source.destroy();
+  
+      //   // Start a new iterator
+      //   this._source = undefined;
+      //   this.inPhaseTwo = true;
+      //   this._createSource = this.delayedSource;
+      //   this._loadSourceAsync();
+      // }
+    };
+  }
+
+  public setSource(source : any) {
+    super.setProperties({
+      source: source
+    });
   }
 
   protected _init(autoStart: boolean): void {
     super._init(autoStart);
-
-    // Switch to the second stream after a timeout
-    this.timeoutHandle = setTimeout(() => {
-      if (this.source && !this.source.done) {
-        // Stop current iterator
-        this.source.destroy();
-
-        // Start a new iterator
-        this.timeoutHandle = undefined;
-        this._source = undefined;
-        this._createSource = this.delayedSource;
-        this._loadSourceAsync();
-      }
-    }, this.timeout);
   }
 
   protected _push(item: Bindings): void {
     // eslint-disable-next-line @typescript-eslint/no-base-to-string
     const bindingsKey = item.toString();
-    if (this.timeoutHandle) {
+    if (!this.inPhaseTwo) {
       // If we're in the first stream, store the pushed bindings
       this.pushedBindings.set(bindingsKey, (this.pushedBindings.get(bindingsKey) || 0) + 1);
       super._push(item);
@@ -66,8 +77,5 @@ export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
 
   protected _end(destroy: boolean): void {
     super._end(destroy);
-    if (this.timeoutHandle) {
-      clearTimeout(this.timeoutHandle);
-    }
   }
 }

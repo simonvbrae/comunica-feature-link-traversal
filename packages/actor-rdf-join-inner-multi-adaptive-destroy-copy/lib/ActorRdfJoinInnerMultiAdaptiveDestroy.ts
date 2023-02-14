@@ -28,6 +28,9 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
       physicalName: "multi-adaptive-destroy",
     });
     this.timeout = args.timeout;
+    if (this.skipAdaptiveJoin) {
+      console.log("cb: skipadaptivejoin was true");
+    }
     this.skipAdaptiveJoin = args.skipAdaptiveJoin;
   }
 
@@ -66,16 +69,11 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     action: IActionRdfJoin
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
-    const subContext0 = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
-    // Configure sort actors
-    const subContext1 = subContext0.set(
-      KeysRdfJoinEntriesSort.sortZeroKnowledge,
-      false
-    );
-    const subContext = subContext1.set(
-      KeysRdfJoinEntriesSort.sortByCardinality,
-      true
-    );
+    let subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
+    console.log('cb: set subcontext');
+    subContext = subContext.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
+
+    console.log("cb: subContext.get(KeysRdfJoin.adaptiveJoinCallback)", subContext.get(KeysRdfJoin.adaptiveJoinCallback));
 
     // Execute the join with the metadata we have now
     const firstOutput = await this.mediatorJoin.mediate({
@@ -84,37 +82,31 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
       context: subContext,
     });
 
-    const subContext2 = subContext.set(
-      KeysRdfJoinEntriesSort.sortZeroKnowledge,
-      false
-    );
-    const subContext3 = subContext2.set(
-      KeysRdfJoinEntriesSort.sortByCardinality,
-      true
+    let bindingsStream = new BindingsStreamAdaptiveDestroy(
+      firstOutput.bindingsStream,
+      async () => {
+        // Restart the join with the latest metadata
+        console.log("");
+        console.log("");
+        console.log("---------------SWAP--------------");
+        console.log("");
+        console.log("");
+        // let subContextNoCallback = subContext.set(KeysRdfJoin.adaptiveJoinCallback, undefined);
+        return (
+          await this.mediatorJoin.mediate({
+            type: action.type,
+            entries: this.cloneEntries(action.entries),
+            context: subContext, // TODO: Callback not available in phase two
+          })
+        ).bindingsStream;
+      },
+      { timeout: this.timeout, autoStart: false }
     );
 
     return {
       result: {
         type: "bindings",
-        bindingsStream: new BindingsStreamAdaptiveDestroy(
-          firstOutput.bindingsStream,
-          async () => {
-            // Restart the join with the latest metadata
-            console.log("");
-            console.log("");
-            console.log("---------------SWAP--------------");
-            console.log("");
-            console.log("");
-            return (
-              await this.mediatorJoin.mediate({
-                type: action.type,
-                entries: this.cloneEntries(action.entries),
-                context: subContext3,
-              })
-            ).bindingsStream;
-          },
-          { timeout: this.timeout, autoStart: false }
-        ),
+        bindingsStream: bindingsStream,
         metadata: firstOutput.metadata,
       },
     };

@@ -9,10 +9,11 @@ import {
   type IActorRdfMetadataExtractArgs,
   ActorRdfMetadataExtract,
 } from "@comunica/bus-rdf-metadata-extract";
-import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
+import { KeysQueryOperation, KeysInitQuery, KeysRdfJoin } from "@comunica/context-entries";
 import { type IActorTest } from "@comunica/core";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
 import type * as RDF from "@rdfjs/types";
+import { exit } from "process";
 import { storeStream } from "rdf-store-stream";
 
 /**
@@ -37,7 +38,6 @@ export class ActorRdfMetadataExtractVoidDescription
   public constructor(args: IActorRdfMetadataExtractVoidDescriptionArgs) {
     console.log('ActorRdfMetadataExtractVoidDescription');
     super(args);
-    // console.log("ActorRdfMetadataExtractVoidDescription: constructor");
     this.actorInitQuery = args.actorInitQuery;
     this.mediatorDereferenceRdf = args.mediatorDereferenceRdf;
     this.voidDatasetDescriptionPredicates =
@@ -66,15 +66,7 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    const quad: RDF.Quad = action.context.getSafe(
-      KeysQueryOperation.operation
-    ) as RDF.Quad;
-    // console.log("action");
-    // console.log(action);
-    // if (quad.predicate.value !== "http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/vocabulary/hasCreator") {
-    //   console.log("Found other predicate");
-    //   console.log(quad.predicate.value);
-    // }
+    console.log('HEY: run void');
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -86,11 +78,14 @@ export class ActorRdfMetadataExtractVoidDescription
         );
       }
     }
-
-    let meta = this.extractMetadataForPredicate(
-      action.url,
-      quad.predicate.value
-    );
+    let callback : any = action.context.get(KeysRdfJoin.adaptiveJoinCallback);
+    console.log("cb:", callback);
+    console.log("cb skip:", action.context.get(KeysRdfJoin.skipAdaptiveJoin));
+    if (callback){
+      console.log("cb:", callback);
+      callback();
+      exit(1);
+    };
     return {metadata: {cardinality: {map: ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset, extractor: this.extractMetadataForPredicate}}};;
   }
 
@@ -98,7 +93,6 @@ export class ActorRdfMetadataExtractVoidDescription
     url: string,
     context: IActionContext
   ): Promise<void> {
-    // console.log("Calling dereference function, url: " + url);
     const response = await this.mediatorDereferenceRdf.mediate({
       url: url,
       context: context,
@@ -145,7 +139,6 @@ export class ActorRdfMetadataExtractVoidDescription
           ) as Map<string, number>;
         // logging it like this below
         // eslint-disable-next-line no-console
-
         datasetData.set(
           property.value,
           (datasetData.get(property.value) ?? 0) +
@@ -159,7 +152,6 @@ export class ActorRdfMetadataExtractVoidDescription
     metadata: RDF.Stream
   ): Promise<string[]> {
     return new Promise<string[]>((resolve, reject) => {
-      // console.log("calling extractVoidDatasetDescriptionLinks");
       const datasetDescriptionLinks: Set<string> = new Set<string>();
       metadata
         .on("data", (quad: RDF.Quad) => {
@@ -196,7 +188,6 @@ export class ActorRdfMetadataExtractVoidDescription
       type: "estimate",
       value: Number.POSITIVE_INFINITY,
     };
-
 
     for (const [
       datasetUrl,
