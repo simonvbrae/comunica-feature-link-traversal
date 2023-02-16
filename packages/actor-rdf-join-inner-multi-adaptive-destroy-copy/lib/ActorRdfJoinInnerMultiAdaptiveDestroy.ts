@@ -5,7 +5,7 @@ import type {
   IActorRdfJoinOutputInner,
 } from "@comunica/bus-rdf-join";
 import { ActorRdfJoin } from "@comunica/bus-rdf-join";
-import { KeysRdfJoin, KeysRdfJoinEntriesSort } from "@comunica/context-entries";
+import { KeysRdfJoinEntriesSort, KeysRdfJoin } from '@comunica/context-entries-link-traversal';
 import type { IMediatorTypeJoinCoefficients } from "@comunica/mediatortype-join-coefficients";
 import type {
   IQueryOperationResultBindings,
