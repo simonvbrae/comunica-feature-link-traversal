@@ -5,9 +5,9 @@ import type {
 import { ActorRdfJoinEntriesSort } from "@comunica/bus-rdf-join-entries-sort";
 import { getDataSourceValue } from "@comunica/bus-rdf-resolve-quad-pattern";
 import {
-  KeysRdfJoinEntriesSort,
   KeysRdfResolveQuadPattern,
 } from "@comunica/context-entries";
+import { KeysRdfJoinEntriesSort } from '@comunica/context-entries-link-traversal';
 import type { IActorArgs, IActorTest } from "@comunica/core";
 import type {
   DataSources,

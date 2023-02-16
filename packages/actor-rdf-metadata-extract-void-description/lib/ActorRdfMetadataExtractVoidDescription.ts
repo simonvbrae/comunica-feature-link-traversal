@@ -9,7 +9,8 @@ import {
   type IActorRdfMetadataExtractArgs,
   ActorRdfMetadataExtract,
 } from "@comunica/bus-rdf-metadata-extract";
-import { KeysQueryOperation, KeysInitQuery, KeysRdfJoin } from "@comunica/context-entries";
+import { KeysQueryOperation, KeysInitQuery } from "@comunica/context-entries";
+import { KeysRdfJoin } from '@comunica/context-entries-link-traversal';
 import { type IActorTest } from "@comunica/core";
 import { type IActionContext, type IQueryEngine } from "@comunica/types";
 import type * as RDF from "@rdfjs/types";

@@ -1,5 +1,14 @@
 import { ActionContextKey } from '@comunica/core';
 import type { AnnotateSourcesType } from '@comunica/types-link-traversal';
+import type { Bindings,
+  IPhysicalQueryPlanLogger,
+  QueryExplainMode,
+  IProxyHandler,
+  ICliArgsHandler,
+  DataSources,
+  IDataSource,
+  IDataDestination,
+  MetadataBindings } from '@comunica/types';
 
 /**
  * When adding entries to this file, also add a shortcut for them in the contextKeyShortcuts TSDoc comment in
@@ -7,7 +16,7 @@ import type { AnnotateSourcesType } from '@comunica/types-link-traversal';
  * Also, add this shortcut to IQueryContextCommon in @comunica/types.
  */
 
-export const KeysRdfResolveHypermediaLinks = {
+ export const KeysRdfResolveHypermediaLinks = {
   /**
    * A flag for indicating if traversal should be enabled. Defaults to true.
    */
@@ -18,4 +27,24 @@ export const KeysRdfResolveHypermediaLinks = {
   annotateSources: new ActionContextKey<AnnotateSourcesType>(
     '@comunica/bus-rdf-resolve-hypermedia-links:annotateSources',
   ),
+};
+export const KeysRdfJoin = {
+  /**
+   * If adaptive joining must not be done.
+   */
+  skipAdaptiveJoin: new ActionContextKey<IDataDestination>('@comunica/bus-rdf-join:skipAdaptiveJoin'),
+  /**
+   * Callback which starts phase two of adaptive join.
+   */
+  adaptiveJoinCallback: new ActionContextKey<any>('@comunica/bus-rdf-join:adaptiveJoinCallback')
+};
+export const KeysRdfJoinEntriesSort = {
+  /**
+   * If adaptive joining must not be done.
+   */
+  sortByCardinality: new ActionContextKey<boolean>('@comunica/bus-rdf-join-entries-sort:sortByCardinality'),
+  /**
+   * Callback which starts phase two of adaptive join.
+   */
+  sortZeroKnowledge: new ActionContextKey<boolean>('@comunica/bus-rdf-join-entries-sort:sortZeroKnowledge')
 };
