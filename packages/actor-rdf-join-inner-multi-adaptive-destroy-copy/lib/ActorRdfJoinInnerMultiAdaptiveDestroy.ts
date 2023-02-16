@@ -70,10 +70,9 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
     let subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
-    console.log('cb: set subcontext');
     subContext = subContext.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
-
-    console.log("cb: subContext.get(KeysRdfJoin.adaptiveJoinCallback)", subContext.get(KeysRdfJoin.adaptiveJoinCallback));
+    subContext = subContext.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
+    subContext = subContext.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, true);
 
     // Execute the join with the metadata we have now
     const firstOutput = await this.mediatorJoin.mediate({

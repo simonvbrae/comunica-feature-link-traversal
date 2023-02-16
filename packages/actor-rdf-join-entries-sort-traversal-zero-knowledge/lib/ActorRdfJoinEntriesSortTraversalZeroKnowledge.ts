@@ -185,9 +185,6 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
-    throw new Error(
-      `Actor ${this.name} should not be used right now`
-    );
     if (
       action.context.get(KeysRdfJoinEntriesSort.sortZeroKnowledge) === false
     ) {
@@ -196,9 +193,6 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
       );
     }
     return true;
-    // throw new Error(
-    //   `Actor ${this.name} should not be used when accurate cardinalities are known`
-    // );
   }
 
   public async run(

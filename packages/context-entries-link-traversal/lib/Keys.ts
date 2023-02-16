@@ -40,11 +40,11 @@ export const KeysRdfJoin = {
 };
 export const KeysRdfJoinEntriesSort = {
   /**
-   * If adaptive joining must not be done.
+   * A flag for whether to use the cardinality sort.
    */
   sortByCardinality: new ActionContextKey<boolean>('@comunica/bus-rdf-join-entries-sort:sortByCardinality'),
   /**
-   * Callback which starts phase two of adaptive join.
+   * A flag for whether to use the zero knowledge sort.
    */
   sortZeroKnowledge: new ActionContextKey<boolean>('@comunica/bus-rdf-join-entries-sort:sortZeroKnowledge')
 };
