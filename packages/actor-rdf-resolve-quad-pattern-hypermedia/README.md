@@ -1,4 +1,6 @@
 # Comunica Hypermedia RDF Resolve Quad Pattern Actor
+## This package contains changed compared to the comunica version
+- startIterator method doesn't overwrite cardinalities coming from a predicate index
 
 [![npm version](https://badge.fury.io/js/%40comunica%2Factor-rdf-resolve-quad-pattern-hypermedia.svg)](https://www.npmjs.com/package/@comunica/actor-rdf-resolve-quad-pattern-hypermedia)
 
