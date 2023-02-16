@@ -3,7 +3,6 @@ import type { IActionRdfMetadataAccumulate, IActorRdfMetadataAccumulateOutput,
 import { ActorRdfMetadataAccumulate } from '@comunica/bus-rdf-metadata-accumulate';
 import type { IActorTest } from '@comunica/core';
 import type { QueryResultCardinality } from '@comunica/types';
-import { exit } from 'process';
 
 /**
  * A comunica Cardinality RDF Metadata Accumulate Actor.
@@ -21,6 +20,15 @@ export class ActorRdfMetadataAccumulateCardinality extends ActorRdfMetadataAccum
     // Return default value on initialize
     if (action.mode === 'initialize') {
       return { metadata: { cardinality: { type: 'exact', value: 0 }}};
+    }
+    
+    if (action.accumulatedMetadata.cardinality_index) {
+      console.log("OK");
+      console.log(action.accumulatedMetadata.cardinality_index);
+    }
+    if (action.appendingMetadata.cardinality_index) {
+      console.log("OK2");
+      console.log(action.appendingMetadata.cardinality_index);
     }
 
     // Otherwise, attempt to update existing value
