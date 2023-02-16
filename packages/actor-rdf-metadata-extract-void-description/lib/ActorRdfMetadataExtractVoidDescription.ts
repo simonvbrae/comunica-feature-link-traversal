@@ -87,7 +87,7 @@ export class ActorRdfMetadataExtractVoidDescription
       callback();
       exit(1);
     };
-    return {metadata: {cardinality: {map: ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset, extractor: this.extractMetadataForPredicate}}};;
+    return {metadata: {cardinality_index: {map: ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset, extractor: this.extractMetadataForPredicate}}};;
   }
 
   private async dereferenceVoidDatasetDescription(

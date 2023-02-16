@@ -7,6 +7,7 @@ import type * as RDF from '@rdfjs/types';
 import type { AsyncIterator } from 'asynciterator';
 import { BufferedIterator } from 'asynciterator';
 import LRUCache = require('lru-cache');
+import { exit } from 'process';
 
 export abstract class LinkedRdfSourcesAsyncRdfIterator extends BufferedIterator<RDF.Quad> implements RDF.Stream {
   public sourcesState?: ISourcesState;
@@ -216,33 +217,27 @@ export abstract class LinkedRdfSourcesAsyncRdfIterator extends BufferedIterator<
     // Listen for the metadata of the source
     // The metadata property is guaranteed to be set
     iterator.getProperty('metadata', (metadata: MetadataQuads) => {
+      // Take each metadata object out of its map if possible
+      if (metadata.cardinality_index) {
+        metadata.cardinality=metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, metadata.cardinality_index.map).metadata.cardinality;
+      }
+      if (startSource.metadata.cardinality_index) {
+        startSource.metadata.cardinality=startSource.metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, startSource.metadata.cardinality_index.map).metadata.cardinality;
+      }
+      delete metadata.cardinality_index;
+      delete startSource.metadata.cardinality_index;
+
       // Retrieve the most recent cardinality that came from the predicate index
-      // Not infinity
       // If not available, follow the original implementation's choice
       let cardinality = metadata.cardinality;
       let metadataCardinality : any = metadata.cardinality;
       let startSourceCardinality : any = startSource.metadata.cardinality;
-      if (metadataCardinality?.map && startSourceCardinality?.map) {
-          let c1 = metadataCardinality.extractor(this.firstUrl, this.predicate.value, metadataCardinality.map).metadata.cardinality;
-          let c2 = startSourceCardinality.extractor(this.firstUrl, this.predicate.value, startSourceCardinality.map).metadata.cardinality;
-          if (c1.value !== Infinity || c1.value === c2.value) {
-              cardinality = c1;
-          } else {
-              cardinality = c2;
-          }
-      } else if (metadataCardinality?.map) {
-          let c1 = metadataCardinality.extractor(this.firstUrl, this.predicate.value, metadataCardinality.map).metadata.cardinality;
-          if (c1.value !== Infinity) {
-              cardinality = c1;
-          } else {
-              cardinality = startSourceCardinality.cardinality;
-          }
-      } else if (startSourceCardinality?.map) {
-          // Fall back to using predicate index cardinality from startSource
-          let c2 = startSourceCardinality.extractor(this.firstUrl, this.predicate.value, startSourceCardinality.map).metadata.cardinality;
-          if (c2.value !== Infinity) {
-              cardinality = c2;
-          }
+      
+      if (metadataCardinality.type === 'index' && metadata.cardinality.value === Infinity) {
+        cardinality = startSource.metadata.cardinality;
+      }
+      if (metadataCardinality.type !== 'index' && startSourceCardinality.type === 'index' && startSourceCardinality.value !== Infinity){
+        cardinality = startSource.metadata.cardinality;
       }
 
       metadata = { ...startSource.metadata, ...metadata, cardinality };

@@ -6,5 +6,18 @@
   "@id": "urn:comunica:default:Runner",
   "@type": "Runner",
   "actors": [
+    {
+      "@id": "urn:comunica:default:rdf-metadata-extract/actors#void-description",
+      "@type": "ActorRdfMetadataExtractVoidDescription",
+      "actorInitQuery": {
+        "@id": "urn:comunica:default:init/actors#query"
+      },
+      "mediatorDereferenceRdf": {
+        "@id": "urn:comunica:default:dereference-rdf/mediators#main"
+      },
+      "voidDatasetDescriptionPredicates": [
+        "http://www.w3.org/ns/solid/terms#voidDescription"
+      ]
+    }
   ]
 }
