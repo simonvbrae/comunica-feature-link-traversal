@@ -10,7 +10,6 @@ import { exit } from 'process';
  */
 export class ActorRdfMetadataAccumulateCardinality extends ActorRdfMetadataAccumulate {
   public constructor(args: IActorRdfMetadataAccumulateArgs) {
-    console.log("IT RUNS");
     super(args);
   }
 
