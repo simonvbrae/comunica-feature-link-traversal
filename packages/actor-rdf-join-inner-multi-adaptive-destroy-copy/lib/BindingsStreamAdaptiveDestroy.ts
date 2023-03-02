@@ -12,11 +12,9 @@ import { exit } from 'process';
  * This will ensure that results are not duplicated after switching.
  */
 export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
-  private readonly timeout: number;
   private readonly delayedSource: () => Promise<BindingsStream>;
   private readonly pushedBindings: Map<string, number>;
 
-  private timeoutHandle: NodeJS.Timeout | undefined;
   public swapCallback: any;
   private inPhaseTwo: boolean;
 
@@ -26,24 +24,24 @@ export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
     options: TransformIteratorOptions<Bindings> & { timeout: number },
   ) {
     super(source, options);
-    this.timeout = options.timeout;
     this.delayedSource = delayedSource;
     this.pushedBindings = new Map();
     this.inPhaseTwo = false;
 
     this.swapCallback = () => {
       console.log("cb: Called swapCallback");
-      exit(1);
-      // if (this.source && !this.source.done && !this.inPhaseTwo) {
-      //   // Stop current iterator
-      //   this.source.destroy();
-  
-      //   // Start a new iterator
-      //   this._source = undefined;
-      //   this.inPhaseTwo = true;
-      //   this._createSource = this.delayedSource;
-      //   this._loadSourceAsync();
-      // }
+      console.log("this.source, this.source?.done, this.inPhaseTwo");
+      console.log(this.source !== undefined, this.source?.done, this.inPhaseTwo);
+      if (this.source && !this.source.done && !this.inPhaseTwo) {
+        // Stop current iterator
+        this.source.destroy();
+
+        // Start a new iterator
+        this._source = undefined;
+        this.inPhaseTwo = true;
+        this._createSource = this.delayedSource;
+        this._loadSourceAsync();
+      }
     };
   }
 

@@ -74,6 +74,7 @@ export class ActorRdfResolveQuadPatternHypermedia extends ActorRdfResolveQuadPat
     // Try to read from cache
     if (this.cache && this.cache.has(url)) {
       source = this.cache.get(url)!;
+      source.context = context;
     } else {
       // If not in cache, create a new source
       source = new MediatedQuadSource(

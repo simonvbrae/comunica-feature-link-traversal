@@ -22,15 +22,6 @@ export class ActorRdfMetadataAccumulateCardinality extends ActorRdfMetadataAccum
       return { metadata: { cardinality: { type: 'exact', value: 0 }}};
     }
     
-    if (action.accumulatedMetadata.cardinality_index) {
-      console.log("OK");
-      console.log(action.accumulatedMetadata.cardinality_index);
-    }
-    if (action.appendingMetadata.cardinality_index) {
-      console.log("OK2");
-      console.log(action.appendingMetadata.cardinality_index);
-    }
-
     // Otherwise, attempt to update existing value
     const cardinality: QueryResultCardinality = { ...action.accumulatedMetadata.cardinality };
 

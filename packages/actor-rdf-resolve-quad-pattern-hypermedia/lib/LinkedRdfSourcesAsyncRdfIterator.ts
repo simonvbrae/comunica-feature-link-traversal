@@ -7,7 +7,6 @@ import type * as RDF from '@rdfjs/types';
 import type { AsyncIterator } from 'asynciterator';
 import { BufferedIterator } from 'asynciterator';
 import LRUCache = require('lru-cache');
-import { exit } from 'process';
 
 export abstract class LinkedRdfSourcesAsyncRdfIterator extends BufferedIterator<RDF.Quad> implements RDF.Stream {
   public sourcesState?: ISourcesState;
@@ -223,7 +222,9 @@ export abstract class LinkedRdfSourcesAsyncRdfIterator extends BufferedIterator<
       }
       if (startSource.metadata.cardinality_index) {
         startSource.metadata.cardinality=startSource.metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, startSource.metadata.cardinality_index.map).metadata.cardinality;
-      }
+      }undefined
+      undefined
+      
       delete metadata.cardinality_index;
       delete startSource.metadata.cardinality_index;
 
