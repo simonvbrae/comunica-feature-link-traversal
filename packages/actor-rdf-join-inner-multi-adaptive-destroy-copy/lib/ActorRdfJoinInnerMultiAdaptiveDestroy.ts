@@ -68,16 +68,28 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     action: IActionRdfJoin
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
-    let subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
-    subContext = subContext.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
-    // subContext = subContext.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
-    // subContext = subContext.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
+    let subContextWithoutCallback = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
+    let context = subContextWithoutCallback.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
+    
+    let entriesHaveIndexCardinalities : boolean = true;
+    for (let entry of action.entries) {
+      let x = await entry.output.metadata();
+      let type : any = x.cardinality?.type;
+      if (type !== "index") {
+        entriesHaveIndexCardinalities = false;
+      }
+    }
+    if (entriesHaveIndexCardinalities) {
+      // If each entry has cardinalities from the index, disable restarting the query
+      console.log("Going directly to phase two");
+      context = subContextWithoutCallback;
+    }
 
     // Execute the join with the metadata we have now
     const firstOutput = await this.mediatorJoin.mediate({
       type: action.type,
       entries: this.cloneEntries(action.entries),
-      context: subContext,
+      context: context,
     });
 
     let bindingsStream = new BindingsStreamAdaptiveDestroy(
@@ -89,7 +101,6 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
         console.log("---------------SWAP--------------");
         console.log("");
         console.log("");
-        let subContextWithoutCallback = subContext.set(KeysRdfJoin.adaptiveJoinCallback, undefined);
         return (
           await this.mediatorJoin.mediate({
             type: action.type,

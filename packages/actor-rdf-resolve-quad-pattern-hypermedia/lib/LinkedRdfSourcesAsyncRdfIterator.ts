@@ -218,16 +218,18 @@ export abstract class LinkedRdfSourcesAsyncRdfIterator extends BufferedIterator<
     iterator.getProperty('metadata', (metadata: MetadataQuads) => {
       // Take each metadata object out of its map if possible
       if (metadata.cardinality_index) {
-        metadata.cardinality=metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, metadata.cardinality_index.map).metadata.cardinality;
+        let card = metadata.cardinality=metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, metadata.cardinality_index.map).metadata.cardinality;
+        if (card.value !== Number.POSITIVE_INFINITY) {
+          metadata.cardinality = card;
+        }
       }
       if (startSource.metadata.cardinality_index) {
-        startSource.metadata.cardinality=startSource.metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, startSource.metadata.cardinality_index.map).metadata.cardinality;
-      }undefined
-      undefined
+        let card = startSource.metadata.cardinality=startSource.metadata.cardinality_index.extractor(this.firstUrl, this.predicate.value, startSource.metadata.cardinality_index.map).metadata.cardinality;
+        if (card.value !== Number.POSITIVE_INFINITY) {
+          startSource.metadata.cardinality = card;
+        }
+      }
       
-      delete metadata.cardinality_index;
-      delete startSource.metadata.cardinality_index;
-
       // Retrieve the most recent cardinality that came from the predicate index
       // If not available, follow the original implementation's choice
       let cardinality = metadata.cardinality;

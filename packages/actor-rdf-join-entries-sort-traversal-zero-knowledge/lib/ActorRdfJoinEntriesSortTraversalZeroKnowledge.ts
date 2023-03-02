@@ -198,7 +198,6 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
   public async run(
     action: IActionRdfJoinEntriesSort
   ): Promise<IActorRdfJoinEntriesSortOutput> {
-    console.log("run zero sort");
     // Determine all current sources
     const sources: string[] = [];
     const dataSources: DataSources | undefined = action.context.get(
