@@ -12,7 +12,7 @@ import { MediatedLinkedRdfSourcesAsyncRdfIterator } from './MediatedLinkedRdfSou
  * @see MediatedLinkedRdfSourcesAsyncRdfIterator
  */
 export class MediatedQuadSource implements IQuadSource {
-  public readonly context: IActionContext;
+  public context: IActionContext;
   public readonly firstUrl: string;
   public readonly forceSourceType?: string;
   public readonly mediators: IMediatorArgs;

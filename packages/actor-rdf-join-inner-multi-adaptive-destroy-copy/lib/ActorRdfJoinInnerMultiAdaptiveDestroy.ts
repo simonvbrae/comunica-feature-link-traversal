@@ -12,6 +12,7 @@ import type {
   MetadataBindings,
   IJoinEntry,
 } from "@comunica/types";
+import { exit } from "process";
 import { BindingsStreamAdaptiveDestroy } from "./BindingsStreamAdaptiveDestroy";
 
 /**
@@ -28,9 +29,6 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
       physicalName: "multi-adaptive-destroy",
     });
     this.timeout = args.timeout;
-    if (this.skipAdaptiveJoin) {
-      console.log("cb: skipadaptivejoin was true");
-    }
     this.skipAdaptiveJoin = args.skipAdaptiveJoin;
   }
 
@@ -51,6 +49,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   public async run(
     action: IActionRdfJoin
   ): Promise<IQueryOperationResultBindings> {
+    // console.log("HEY: run adaptivejoin");
     return super.run(action);
   }
 
@@ -71,8 +70,8 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
     let subContext = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
     subContext = subContext.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
-    subContext = subContext.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
-    subContext = subContext.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, true);
+    // subContext = subContext.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
+    // subContext = subContext.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
 
     // Execute the join with the metadata we have now
     const firstOutput = await this.mediatorJoin.mediate({
@@ -90,12 +89,12 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
         console.log("---------------SWAP--------------");
         console.log("");
         console.log("");
-        // let subContextNoCallback = subContext.set(KeysRdfJoin.adaptiveJoinCallback, undefined);
+        let subContextWithoutCallback = subContext.set(KeysRdfJoin.adaptiveJoinCallback, undefined);
         return (
           await this.mediatorJoin.mediate({
             type: action.type,
             entries: this.cloneEntries(action.entries),
-            context: subContext, // TODO: Callback not available in phase two
+            context: subContextWithoutCallback,
           })
         ).bindingsStream;
       },

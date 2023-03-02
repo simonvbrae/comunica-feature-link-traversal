@@ -67,7 +67,7 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    console.log('HEY: run void');
+    // console.log('HEY: run void');
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
@@ -79,14 +79,12 @@ export class ActorRdfMetadataExtractVoidDescription
         );
       }
     }
+
     let callback : any = action.context.get(KeysRdfJoin.adaptiveJoinCallback);
-    console.log("cb:", callback);
-    console.log("cb skip:", action.context.get(KeysRdfJoin.skipAdaptiveJoin));
     if (callback){
-      console.log("cb:", callback);
-      callback();
-      exit(1);
+        callback();
     };
+
     return {metadata: {cardinality_index: {map: ActorRdfMetadataExtractVoidDescription.predicateCardinalitiesByDataset, extractor: this.extractMetadataForPredicate}}};;
   }
 
