@@ -193,7 +193,7 @@ export class ActorRdfMetadataExtractVoidDescription
       cardinalityMap,
     ] of map) {
       // TODO Find a good way to get right entry from map
-      if ((url.startsWith(datasetUrl) || map.size === 1) && cardinalityMap.has(predicate)) {
+      if (url.startsWith(datasetUrl) && cardinalityMap.has(predicate)) {
         cardinality.dataset = datasetUrl;
         cardinality.value = cardinalityMap.get(predicate) as number;
         cardinality.type = "index";
