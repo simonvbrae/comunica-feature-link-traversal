@@ -17,15 +17,6 @@
   "@type": "Runner",
   "actors": [
     {
-      "@id": "urn:comunica:default:rdf-join/actors#inner-multi-adaptive-destroy-copy",
-      "@type": "ActorRdfJoinInnerMultiAdaptiveDestroy",
-      "mediatorJoinSelectivity": { "@id": "urn:comunica:default:rdf-join-selectivity/mediators#main" },
-      "mediatorJoin": { "@id": "urn:comunica:default:rdf-join/mediators#main" },
-      "timeout": 1,
-      "skipAdaptiveJoin": false
-    },
-
-    {
       "@id": "urn:comunica:default:rdf-join/actors#inner-none",
       "@type": "ActorRdfJoinNone",
       "mediatorJoinSelectivity": { "@id": "urn:comunica:default:rdf-join-selectivity/mediators#main" }
