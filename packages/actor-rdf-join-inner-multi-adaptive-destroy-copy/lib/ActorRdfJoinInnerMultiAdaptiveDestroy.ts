@@ -69,7 +69,9 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
     let subContextWithoutCallback = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
-    let context = subContextWithoutCallback.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
+    let subContextWithoutCallback2 = subContextWithoutCallback.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
+    subContextWithoutCallback2 = subContextWithoutCallback2.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
+    let context = subContextWithoutCallback2.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
     
     let entriesHaveIndexCardinalities : boolean = true;
     for (let entry of action.entries) {
@@ -82,7 +84,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     if (entriesHaveIndexCardinalities) {
       // If each entry has cardinalities from the index, disable restarting the query
       console.log("Going directly to phase two");
-      context = subContextWithoutCallback;
+      context = subContextWithoutCallback2;
     }
 
     // Execute the join with the metadata we have now
@@ -105,7 +107,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
           await this.mediatorJoin.mediate({
             type: action.type,
             entries: this.cloneEntries(action.entries),
-            context: subContextWithoutCallback,
+            context: subContextWithoutCallback2,
           })
         ).bindingsStream;
       },
