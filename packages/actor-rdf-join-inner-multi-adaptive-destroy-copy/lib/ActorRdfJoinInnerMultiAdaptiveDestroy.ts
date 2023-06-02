@@ -22,6 +22,8 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   public readonly mediatorJoin: MediatorRdfJoin;
   public readonly timeout: number;
   public readonly skipAdaptiveJoin: boolean;
+  public readonly useCallback: boolean;
+  public readonly useTimeout: boolean;
 
   public constructor(args: IActorRdfJoinInnerMultiAdaptiveDestroyArgs) {
     super(args, {
@@ -30,6 +32,8 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     });
     this.timeout = args.timeout;
     this.skipAdaptiveJoin = args.skipAdaptiveJoin;
+    this.useCallback = args.useCallback;
+    this.useTimeout = args.useTimeout;
   }
 
   public async test(
@@ -111,7 +115,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
           })
         ).bindingsStream;
       },
-      { timeout: this.timeout, autoStart: false }
+      { timeout: this.timeout, useCallback: this.useCallback, useTimeout: this.useTimeout, autoStart: false }
     );
 
     return {
@@ -145,4 +149,6 @@ export interface IActorRdfJoinInnerMultiAdaptiveDestroyArgs
    */
   timeout: number;
   skipAdaptiveJoin: boolean;
+  useTimeout: boolean;
+  useCallback: boolean;
 }
