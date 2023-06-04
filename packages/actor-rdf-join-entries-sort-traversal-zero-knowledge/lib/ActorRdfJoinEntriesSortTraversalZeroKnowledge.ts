@@ -7,14 +7,12 @@ import { getDataSourceValue } from "@comunica/bus-rdf-resolve-quad-pattern";
 import {
   KeysRdfResolveQuadPattern,
 } from "@comunica/context-entries";
-import { KeysRdfJoinEntriesSort, KeysRdfJoin } from '@comunica/context-entries-link-traversal';
+import { KeysRdfJoinEntriesSort } from '@comunica/context-entries-link-traversal';
 import type { IActorArgs, IActorTest } from "@comunica/core";
 import type {
   DataSources,
-  IDataDestination,
   IJoinEntryWithMetadata,
 } from "@comunica/types";
-import { exit } from "process";
 import type * as RDF from "rdf-js";
 import {
   getNamedNodes,
