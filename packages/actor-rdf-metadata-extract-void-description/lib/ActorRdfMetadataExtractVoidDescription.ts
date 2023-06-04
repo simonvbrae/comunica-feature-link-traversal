@@ -77,7 +77,6 @@ export class ActorRdfMetadataExtractVoidDescription
             this.dereferenceVoidDatasetDescription(url, action.context)
           )
         );
-        
         // New predicate index file discovered
         // Switching to phase two
         let callback : any = action.context.get(KeysRdfJoin.adaptiveJoinCallback);
