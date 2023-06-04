@@ -73,9 +73,19 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
   ): Promise<IActorRdfJoinOutputInner> {
     // Disable adaptive joins in recursive calls to this bus, to avoid infinite recursion on this actor.
     let subContextWithoutCallback = action.context.set(KeysRdfJoin.skipAdaptiveJoin, true);
+    subContextWithoutCallback = subContextWithoutCallback.set(KeysRdfJoin.test, 100);
     let subContextWithoutCallback2 = subContextWithoutCallback.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
     subContextWithoutCallback2 = subContextWithoutCallback2.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
-    let context = subContextWithoutCallback2.set(KeysRdfJoin.adaptiveJoinCallback, () => bindingsStream.swapCallback());
+    let context = subContextWithoutCallback2.set(KeysRdfJoin.adaptiveJoinCallback, () => {
+      console.log("adaptiveJoinCallback called");
+      for (let i = 0; i < 1000; i++) {
+        console.log("-----------------------------------------");
+      }
+      console.log(bindingsStream);
+      console.log(bindingsStream.swapCallback);
+      exit(1);
+    });
+    context = subContextWithoutCallback2.set(KeysRdfJoin.test, 200);
     
     let entriesHaveIndexCardinalities : boolean = true;
     for (let entry of action.entries) {

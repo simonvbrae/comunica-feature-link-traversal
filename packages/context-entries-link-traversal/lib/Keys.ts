@@ -36,7 +36,8 @@ export const KeysRdfJoin = {
   /**
    * Callback which starts phase two of adaptive join.
    */
-  adaptiveJoinCallback: new ActionContextKey<any>('@comunica/bus-rdf-join:adaptiveJoinCallback')
+  adaptiveJoinCallback: new ActionContextKey<any>('@comunica/bus-rdf-join:adaptiveJoinCallback'),
+  test: new ActionContextKey<any>('@comunica/bus-rdf-join:test')
 };
 export const KeysRdfJoinEntriesSort = {
   /**

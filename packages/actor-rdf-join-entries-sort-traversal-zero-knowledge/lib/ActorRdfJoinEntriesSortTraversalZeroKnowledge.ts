@@ -7,7 +7,7 @@ import { getDataSourceValue } from "@comunica/bus-rdf-resolve-quad-pattern";
 import {
   KeysRdfResolveQuadPattern,
 } from "@comunica/context-entries";
-import { KeysRdfJoinEntriesSort } from '@comunica/context-entries-link-traversal';
+import { KeysRdfJoinEntriesSort, KeysRdfJoin } from '@comunica/context-entries-link-traversal';
 import type { IActorArgs, IActorTest } from "@comunica/core";
 import type {
   DataSources,
@@ -150,7 +150,7 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
     entries: IJoinEntryWithMetadata[],
     sources: string[]
   ): IJoinEntryWithMetadata[] {
-    return [...entries].sort(
+    let x = [...entries].sort(
       (entryA: IJoinEntryWithMetadata, entryB: IJoinEntryWithMetadata) => {
         if (
           (entryA.operation.type === Algebra.types.PATTERN ||
@@ -182,6 +182,8 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
         return entryA.operation.type === Algebra.types.PATTERN ? -1 : 1;
       }
     );
+    // console.log(x.map((a : any) => a.metadata.cardinality));
+    return x;
   }
 
   public async test(action: IActionRdfJoinEntriesSort): Promise<IActorTest> {
