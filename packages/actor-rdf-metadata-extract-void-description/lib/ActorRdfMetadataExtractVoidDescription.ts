@@ -67,10 +67,17 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    // console.log('HEY: run void');
+    console.log('HEY: run void');
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
+      console.log("action url:", action.url);
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
+
+        if (action.url.includes("/pods/") && voidMetadataDescriptions.length === 0) {
+        let parts = action.url.split("/");
+        voidMetadataDescriptions.push(parts.slice(0, 5).join("/")+"/profile/voiddescription");
+      }
+
       if (voidMetadataDescriptions.length > 0) {
         await Promise.all(
           voidMetadataDescriptions.map((url) =>
@@ -81,8 +88,13 @@ export class ActorRdfMetadataExtractVoidDescription
         // Switching to phase two
         let callback : any = action.context.get(KeysRdfJoin.adaptiveJoinCallback);
         if (callback){
+            console.log('callback found!');
             callback();
-        };    
+        } else {
+          console.log('no callback :(');
+          console.log(action.context.get(KeysRdfJoin.adaptiveJoinCallback));
+          console.log(action.context.get(KeysRdfJoin.test));
+        };
       }
     }
 

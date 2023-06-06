@@ -1,7 +1,6 @@
 import type { Bindings, BindingsStream } from '@comunica/types';
 import type { TransformIteratorOptions } from 'asynciterator';
 import { TransformIterator } from 'asynciterator';
-import { exit } from 'process';
 
 /**
  * An iterator that starts by iterating over the first iterator,

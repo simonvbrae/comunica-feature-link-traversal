@@ -76,27 +76,22 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     subContextWithoutCallback = subContextWithoutCallback.set(KeysRdfJoin.test, 100);
     subContextWithoutCallback = subContextWithoutCallback.set(KeysRdfJoinEntriesSort.sortByCardinality, true);
     subContextWithoutCallback = subContextWithoutCallback.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
+    
     let context = subContextWithoutCallback.set(KeysRdfJoin.adaptiveJoinCallback, () => {
       console.log("adaptiveJoinCallback called");
-      for (let i = 0; i < 1000; i++) {
-        console.log("-----------------------------------------");
-      }
-      console.log(bindingsStream);
-      console.log(bindingsStream.swapCallback);
-      exit(1);
+      bindingsStream.swapCallback();
     });
-    context = subContextWithoutCallback.set(KeysRdfJoin.test, 200);
+    context = context.set(KeysRdfJoin.test, 200);
     
-    let entriesHaveIndexCardinalities : boolean = true;
+    let allEntriesHaveIndexCardinalities : boolean = true;
     for (let entry of action.entries) {
-      let x = await entry.output.metadata();
+      let x = await entry.output.metadata(); //TODO use entry.metadata.cardinality?
       let type : any = x.cardinality?.type;
       if (type !== "index") {
-        entriesHaveIndexCardinalities = false;
+        allEntriesHaveIndexCardinalities = false;
       }
     }
-    if (entriesHaveIndexCardinalities) {
-      // If each entry has cardinalities from the index, disable restarting the query
+    if (allEntriesHaveIndexCardinalities) {
       console.log("Going directly to phase two");
       context = subContextWithoutCallback;
     }
@@ -111,7 +106,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     let bindingsStream = new BindingsStreamAdaptiveDestroy(
       firstOutput.bindingsStream,
       async () => {
-        // Restart the join with the latest metadata
+        // Restart with the latest metadata
         console.log("");
         console.log("");
         console.log("---------------SWAP--------------");

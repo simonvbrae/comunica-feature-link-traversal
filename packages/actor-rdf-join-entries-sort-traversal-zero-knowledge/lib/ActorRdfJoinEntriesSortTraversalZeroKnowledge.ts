@@ -148,6 +148,7 @@ export class ActorRdfJoinEntriesSortTraversalZeroKnowledge extends ActorRdfJoinE
     entries: IJoinEntryWithMetadata[],
     sources: string[]
   ): IJoinEntryWithMetadata[] {
+    // console.log([...entries].map((a : any) => a.metadata.cardinality));
     let x = [...entries].sort(
       (entryA: IJoinEntryWithMetadata, entryB: IJoinEntryWithMetadata) => {
         if (
