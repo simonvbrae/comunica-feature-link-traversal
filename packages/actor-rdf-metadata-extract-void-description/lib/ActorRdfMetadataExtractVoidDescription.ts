@@ -67,16 +67,17 @@ export class ActorRdfMetadataExtractVoidDescription
   public async run(
     action: IActionRdfMetadataExtract
   ): Promise<IActorRdfMetadataExtractOutput> {
-    console.log('HEY: run void');
+    // console.log('HEY: run void');
     if (!this.checkIfMetadataExistsForUrl(action.url)) {
-      console.log("action url:", action.url);
+      // console.log("action url:", action.url);
       const voidMetadataDescriptions: string[] =
         await this.extractVoidDatasetDescriptionLinks(action.metadata);
 
-        if (action.url.includes("/pods/") && voidMetadataDescriptions.length === 0) {
-        let parts = action.url.split("/");
-        voidMetadataDescriptions.push(parts.slice(0, 5).join("/")+"/profile/voiddescription");
-      }
+      // If this is a pod url, add its void description url to the deref queue
+      // if (action.url.includes("/pods/") && voidMetadataDescriptions.length === 0) {
+        // let parts = action.url.split("/");
+        // voidMetadataDescriptions.push(parts.slice(0, 5).join("/")+"/profile/voiddescription");
+      // }
 
       if (voidMetadataDescriptions.length > 0) {
         await Promise.all(
@@ -88,10 +89,10 @@ export class ActorRdfMetadataExtractVoidDescription
         // Switching to phase two
         let callback : any = action.context.get(KeysRdfJoin.adaptiveJoinCallback);
         if (callback){
-            console.log('callback found!');
-            callback();
+          console.log('found void file, and callback :) So going to phase 2');
+          callback();
         } else {
-          console.log('no callback :(');
+          console.log('found void file, but no callback :( So already in phase 2');
           console.log(action.context.get(KeysRdfJoin.adaptiveJoinCallback));
           console.log(action.context.get(KeysRdfJoin.test));
         };

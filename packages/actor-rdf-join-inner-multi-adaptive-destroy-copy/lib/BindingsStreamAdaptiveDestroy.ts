@@ -36,6 +36,7 @@ export class BindingsStreamAdaptiveDestroy extends TransformIterator<Bindings> {
 
     if (this.useCallback){
       this.swapCallback = () => {
+        console.log("Swapcallback called in BindingsStream");
         if (this.source && !this.source.done && !this.inPhaseTwo) {
           // Stop current iterator
           this.source.destroy();

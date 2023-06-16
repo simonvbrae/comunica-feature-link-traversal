@@ -78,7 +78,7 @@ export class ActorRdfJoinInnerMultiAdaptiveDestroy extends ActorRdfJoin {
     subContextWithoutCallback = subContextWithoutCallback.set(KeysRdfJoinEntriesSort.sortZeroKnowledge, false);
     
     let context = subContextWithoutCallback.set(KeysRdfJoin.adaptiveJoinCallback, () => {
-      console.log("adaptiveJoinCallback called");
+      console.log("calling swapCallback in MultiAdaptive");
       bindingsStream.swapCallback();
     });
     context = context.set(KeysRdfJoin.test, 200);
